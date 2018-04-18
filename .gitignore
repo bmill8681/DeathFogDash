@@ -1,4 +1,5 @@
-/Master Unity Project/LD41-Master-Environment/Library/*
+Library/
+/Master Unity Project/LD41-Master-Environment/Library/
 /Master Unity Project/LD41-Master-Environment/.vs/
 /Master Unity Project/LD41-Master-Environment/[Tt]emp*
 /Master Unity Project/LD41-Master-Environment/[Oo]bj*
@@ -83,3 +84,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+Master Unity Project/LD41-Master-Environment/Library/InspectorExpandedItems.asset
+Master Unity Project/LD41-Master-Environment/Library/InspectorExpandedItems.asset
+*.log
