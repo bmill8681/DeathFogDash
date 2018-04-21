@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4273730902373114}
   - component: {fileID: 33197401579443076}
   - component: {fileID: 23586312696916706}
+  - component: {fileID: 114108729469905242}
   m_Layer: 0
   m_Name: Road_Straight
   m_TagString: Untagged
@@ -82,3 +83,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1421086410366278}
   m_Mesh: {fileID: 4300000, guid: 0e7918ec86247c94f90d60f5baf7f99b, type: 3}
+--- !u!114 &114108729469905242
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1421086410366278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33feb674962c93c4fa7c553a7cf72310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  next_letter: {fileID: 0}
+  isFilled: 0
