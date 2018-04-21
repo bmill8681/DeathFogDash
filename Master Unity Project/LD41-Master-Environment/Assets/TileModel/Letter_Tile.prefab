@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4423129353363798}
   - component: {fileID: 33559361931270346}
   - component: {fileID: 23881742284435940}
+  - component: {fileID: 65638221249216478}
   m_Layer: 0
   m_Name: Letter_Tile
   m_TagString: Untagged
@@ -82,3 +83,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1913863664430248}
   m_Mesh: {fileID: 4300000, guid: b9b683dc838ba104db575d4bdef4ff5c, type: 3}
+--- !u!65 &65638221249216478
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1913863664430248}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 6, z: 3}
+  m_Center: {x: 0, y: 2.5, z: 0}

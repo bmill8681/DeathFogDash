@@ -25,9 +25,14 @@ public class Player : MonoBehaviour {
     {
         if (other.CompareTag("LetterTile"))
         {
-            PlayerInventory.instance.AddItem(other.gameObject);
-            //audiosource.PlayOneShot(letter_jingle);
-            Destroy(other.gameObject);
+            Tile tile = other.GetComponent<LetterTile>()._letter;
+            if (Tile_Selection_Script.instance.AddTile(tile))
+            {
+                //audiosource.PlayOneShot(letter_jingle);
+                Destroy(other.gameObject);
+            }
+
+
         }
     }
 

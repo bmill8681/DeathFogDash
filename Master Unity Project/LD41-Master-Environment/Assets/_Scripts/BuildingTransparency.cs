@@ -8,17 +8,28 @@ public class BuildingTransparency : MonoBehaviour {
     public Material building_tp_mat;
     Material instance_material;
 
+
+
     Color color;
 
     float alpha = 1;
     Coroutine isFading = null;
     MeshRenderer mr;
 
+    private void Awake()
+    {
+        mr = GetComponent<MeshRenderer>();
+        int rand = Random.Range(0, 2);
+        building_mat = GameController.instance.housecolors[rand];
+        building_tp_mat = GameController.instance.housecolors[rand + 2];
+        mr.material = building_mat;
+        
+    }
+
     public void pingFade()
     {
         if (isFading == null)
         {
-            mr = GetComponent<MeshRenderer>();
             mr.material = building_tp_mat;
             instance_material = mr.material;
             color = instance_material.color;
