@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class LetterTile : Item {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
+    bool isOnBoard = true;
+    public string letter;    
+
 	void Update () {
-		
+        if(isOnBoard)
+        transform.Rotate(Vector3.up, 2f);
 	}
 }
