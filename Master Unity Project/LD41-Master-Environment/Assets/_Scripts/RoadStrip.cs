@@ -9,6 +9,7 @@ public class RoadStrip : MonoBehaviour {
 
     public Transform[] slots;
     Item[] items;
+    public string word;
 
     private void Start()
     {
@@ -17,8 +18,9 @@ public class RoadStrip : MonoBehaviour {
 
     public void SetWord()
     {
-        int offset = Random.Range(0, 4);
-        Tile[] word = WordHandler.instance.RandomWord(Random.Range(3,6));
+        
+        Tile[] word = WordHandler.instance.RandomWord(Random.Range(3,slots.Length - 1));
+        int offset = Random.Range(0, slots.Length - word.Length);
         MeshRenderer mr;
         for(int i = 0; i < word.Length; i++)
         {

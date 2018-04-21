@@ -237,6 +237,7 @@ MonoBehaviour:
   possibleTiles:
   - {fileID: 1534959882659194, guid: 2b7d2804020be41448c4e1a770a360c7, type: 2}
   - {fileID: 1057907426537362, guid: 3a826aa862d04664c94d38151279e399, type: 2}
+  - {fileID: 1365270016489194, guid: aa11efe40d33e444e8748c3749a2fdc4, type: 2}
 --- !u!114 &114556937879849090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,3 +252,4 @@ MonoBehaviour:
   possibleTiles:
   - {fileID: 1534959882659194, guid: 2b7d2804020be41448c4e1a770a360c7, type: 2}
   - {fileID: 1057907426537362, guid: 3a826aa862d04664c94d38151279e399, type: 2}
+  - {fileID: 1365270016489194, guid: aa11efe40d33e444e8748c3749a2fdc4, type: 2}
