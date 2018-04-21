@@ -14,11 +14,18 @@ public class CameraFollowPlayer : MonoBehaviour {
     private bool isRotating = false;
     public Text debug_text;
 
+    List<GameObject> current_buildings;
+    RaycastHit rch;
+    Ray tocam;
+    public LayerMask building_mask;
+
     private void Start()
     {
         transform.parent = new GameObject("PlayerFollower-CamerHolder").transform;
         transform.localPosition = new Vector3(50, 65, -30);
         transform.LookAt(player, Vector3.up);
+        target_rotate = 90f;
+        current_buildings = new List<GameObject>();
     }
 
 
@@ -46,6 +53,13 @@ public class CameraFollowPlayer : MonoBehaviour {
 
             transform.LookAt(player, Vector3.up);
             if(debug_text != null)debug_text.text = "Target: " + target_rotate + " Current: " + current_rotate;
+        }
+
+        tocam = new Ray(player.position,transform.position - player.position);
+        if (Physics.Raycast(tocam,out rch,150f,building_mask))
+        {
+            rch.collider.gameObject.BroadcastMessage("pingFade");
+
         }
 
 
