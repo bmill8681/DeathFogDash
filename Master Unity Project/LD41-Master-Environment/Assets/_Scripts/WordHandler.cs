@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Tile { question_mark = 63, _ = 95, A = 65, B = 66, C = 67, D = 68, E = 69, F = 70, G = 71, H = 72, I = 73, J = 74, K = 75, L = 76, M = 77, N = 78, O = 79, P = 80, Q = 81, R = 82, S = 83, T = 84, U = 85, V = 86, W = 87, X = 88, Y = 89, Z = 90 }
+public enum Tile { question_mark = 27, _ = 0, A = 1, B = 2, C = 3, D = 4, E = 5, F = 6, G = 7, H = 8, I = 9, J = 10, K = 11, L = 12, M = 13, N = 14, O = 15, P = 16, Q = 17, R = 18, S = 19, T = 20, U = 21, V = 22, W = 23, X = 24, Y = 25, Z = 26 }
+
+
 
 public class WordHandler : MonoBehaviour {
 
-    public static WordHandler instance;
 
+
+    public static WordHandler instance;
+    public Texture2D[] lettertile_textures;
+    public GameObject LetterPrefab;
     public Tile tester;
+
 
     private void Awake()
     {
@@ -31,7 +37,7 @@ public class WordHandler : MonoBehaviour {
         if (char.IsLetter(A))
         {
             tester = (Tile)((int)(char.ToUpper(A)));
-            return (Tile)((int)(char.ToUpper(A)));
+            return (Tile)((int)(char.ToUpper(A)) - 64);
         }
         else return Tile._;
     }
@@ -41,7 +47,7 @@ public class WordHandler : MonoBehaviour {
         return 'A';
     }
 
-    public Tile[] RandomWord()
+    public Tile[] RandomWord(int word_length)
     {
         string word = "Cat";
 
@@ -52,6 +58,13 @@ public class WordHandler : MonoBehaviour {
         }
         return return_word;
     }
+
+    public void SpawnWord(GameObject[] roadstrip)
+    {
+
+
+    }
+
 
     public int EvalWord(Tile[] word)
     {

@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LetterSlot : MonoBehaviour {
+public class SlabInit : MonoBehaviour {
 
-    public bool isFilled;
-    
+    public RoadStrip[] road_strips;
 
 
 }
