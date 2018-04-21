@@ -68,7 +68,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4521084699947066}
-  - component: {fileID: 114528800645519458}
+  - component: {fileID: 114997047026561074}
   m_Layer: 0
   m_Name: FenceLocation1
   m_TagString: Untagged
@@ -461,21 +461,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1603607434796760}
   m_Mesh: {fileID: 4300000, guid: 9cf56d765201530408feab260cd4dd03, type: 3}
---- !u!114 &114528800645519458
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1601955127182916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c23c7d199e87b9d4aa3ba089f6b46acb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fences:
-  - {fileID: 1299132368639106, guid: 48f9967d607285f478261cdc422e9f92, type: 2}
-  - {fileID: 1299132368639106, guid: 48f9967d607285f478261cdc422e9f92, type: 2}
-  - {fileID: 1299132368639106, guid: 48f9967d607285f478261cdc422e9f92, type: 2}
 --- !u!114 &114811907083870924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -484,7 +469,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1862532967810486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c23c7d199e87b9d4aa3ba089f6b46acb, type: 3}
+  m_Script: {fileID: 11500000, guid: bd5c1b450773fc1468262854c5a160ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fences:
+  - {fileID: 1299132368639106, guid: 48f9967d607285f478261cdc422e9f92, type: 2}
+  - {fileID: 1299132368639106, guid: 48f9967d607285f478261cdc422e9f92, type: 2}
+  - {fileID: 1299132368639106, guid: 48f9967d607285f478261cdc422e9f92, type: 2}
+--- !u!114 &114997047026561074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1601955127182916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5c1b450773fc1468262854c5a160ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fences:
