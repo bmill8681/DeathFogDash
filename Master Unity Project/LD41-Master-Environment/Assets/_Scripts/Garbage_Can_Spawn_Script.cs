@@ -5,6 +5,7 @@ using UnityEngine;
 public class Garbage_Can_Spawn_Script : MonoBehaviour {
 
     public GameObject[] garbageCans = new GameObject[3];
+    public Transform parkParent;
 
     private void Start()
     {
@@ -12,6 +13,7 @@ public class Garbage_Can_Spawn_Script : MonoBehaviour {
         if (objNum != -1)
         {
             GameObject newCan = Instantiate(garbageCans[objNum], transform.position, transform.rotation);
+            newCan.transform.SetParent(parkParent);
         }
         Destroy(this.gameObject);
     } 
