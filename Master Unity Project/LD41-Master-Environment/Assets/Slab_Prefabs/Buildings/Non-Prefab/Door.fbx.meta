@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 0397fc3da08846a4c819156b883e4483
-timeCreated: 1524299219
+guid: 61fe5ad85175e4049ac4fb83200a76d6
+timeCreated: 1524354777
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Material.007
+    2100000: Material.006
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Tree_2
+    4300000: Door
   externalObjects: {}
   materials:
     importMaterials: 1

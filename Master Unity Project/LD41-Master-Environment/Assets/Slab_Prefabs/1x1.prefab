@@ -111,5 +111,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleTiles:
   - {fileID: 1534959882659194, guid: 2b7d2804020be41448c4e1a770a360c7, type: 2}
-  - {fileID: 1625215613129198, guid: aa11efe40d33e444e8748c3749a2fdc4, type: 2}
+  - {fileID: 1789938512956458, guid: f502efd7d9b856141bd8ddab57771356, type: 2}
   - {fileID: 1625215613129198, guid: aa11efe40d33e444e8748c3749a2fdc4, type: 2}
