@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour {
 
-    public static PlayerInventory instance;
-    List<Item> items;
+    //public static PlayerInventory instance;
+    //List<Item> items;
 
  //   private void Awake()
  //   {

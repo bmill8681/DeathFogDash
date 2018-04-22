@@ -5,12 +5,15 @@ using UnityEngine;
 public class SlabInit : MonoBehaviour {
 
     public RoadStrip[] road_strips;
+    public Transform Grass;
+    public Transform roots;
+
 
     private void Start()
     {
         for(int i = 0; i < road_strips.Length; i++)
         {
-            if(Random.value > .5f) { road_strips[i].SetWord(); }
+            if(Random.value > .30f) { road_strips[i].SetWord(); }
             else
             {
                 int first = Random.Range(0, road_strips[i].slots.Length);

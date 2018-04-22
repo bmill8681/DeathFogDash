@@ -4,28 +4,52 @@ using UnityEngine;
 
 public class BuildingTransparency : MonoBehaviour {
 
-    public Material building_mat;
-    public Material building_tp_mat;
+    Material building_mat;
+    Material building_tp_mat;
     Material instance_material;
-
-
+    public bool type1 = false;
 
     Color color;
 
     float alpha = 1;
     Coroutine isFading = null;
     MeshRenderer mr;
+    public Transform search_transform;
 
     private void Awake()
     {
         mr = GetComponent<MeshRenderer>();
-        if (building_mat != GameController.instance.housecolors[2])
+        if (type1)
         {
             int rand = Random.Range(0, 2);
             building_mat = GameController.instance.housecolors[rand];
             building_tp_mat = GameController.instance.housecolors[rand + 3];
             mr.material = building_mat;
         }
+        else
+        {
+            building_mat = GameController.instance.housecolors[2];
+            building_tp_mat = GameController.instance.housecolors[5];
+            mr.material = building_mat;
+        }
+    }
+
+    private void Start()
+    {
+        bool foundroot = false;
+        search_transform = transform.parent; 
+        while (search_transform.parent != search_transform.root && !foundroot)
+        {
+            //Debug.Log();
+            TileSlot slot = search_transform.parent.GetComponent<TileSlot>();
+            if (slot != null && slot.isRoot)
+            {
+                slot.blocker.houses.Add(this);
+                foundroot = true;
+            }
+            else { search_transform = search_transform.parent; }
+        }
+        Debug.Log("finished search " + foundroot);
         
     }
 
