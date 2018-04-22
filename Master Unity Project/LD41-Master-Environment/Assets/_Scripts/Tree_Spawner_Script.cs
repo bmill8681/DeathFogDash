@@ -10,7 +10,7 @@ public class Tree_Spawner_Script : MonoBehaviour {
 
     private void Start()
     {
-        float scaleFactor = Random.Range(30.0f, 50.0f);
+        float scaleFactor = Random.Range(2.0f, 5.0f);
         int objNum = Random.Range(-1, trees.Length);
         if (objNum != -1)
         {
