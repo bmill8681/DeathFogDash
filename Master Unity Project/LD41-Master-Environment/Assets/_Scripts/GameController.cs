@@ -8,6 +8,9 @@ public class GameController : MonoBehaviour {
 
     public Material[] housecolors;
     public GameObject ChasmPrefab;
+    public GameObject SlabPrefab;
+    public GameObject WallPrefab;
+
 
     public uint level = 3;
 

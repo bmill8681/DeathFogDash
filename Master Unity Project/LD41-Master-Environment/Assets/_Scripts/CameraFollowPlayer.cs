@@ -22,9 +22,9 @@ public class CameraFollowPlayer : MonoBehaviour {
     private void Start()
     {
         transform.parent = new GameObject("PlayerFollower-CamerHolder").transform;
-        transform.localPosition = new Vector3(45, 85, -45);
+        transform.localPosition = new Vector3(45, 95, -45);
         transform.LookAt(player, Vector3.up);
-        target_rotate = 90f;
+        target_rotate = -90f;
         current_buildings = new List<GameObject>();
     }
 
