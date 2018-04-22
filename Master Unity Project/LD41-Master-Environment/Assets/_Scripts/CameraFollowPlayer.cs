@@ -22,7 +22,7 @@ public class CameraFollowPlayer : MonoBehaviour {
     private void Start()
     {
         transform.parent = new GameObject("PlayerFollower-CamerHolder").transform;
-        transform.localPosition = new Vector3(50, 65, -50);
+        transform.localPosition = new Vector3(45, 85, -45);
         transform.LookAt(player, Vector3.up);
         target_rotate = 90f;
         current_buildings = new List<GameObject>();
@@ -33,9 +33,9 @@ public class CameraFollowPlayer : MonoBehaviour {
     void Update () {
 
         transform.parent.position = player.position;
-        if (Input.GetKeyDown("left"))
+        if (Input.GetKeyDown("q"))
             target_rotate -= 90f;
-        else if (Input.GetKeyDown("right"))
+        else if (Input.GetKeyDown("e"))
             target_rotate += 90f;
 
         if(target_rotate != current_rotate)
@@ -55,11 +55,18 @@ public class CameraFollowPlayer : MonoBehaviour {
             if(debug_text != null)debug_text.text = "Target: " + target_rotate + " Current: " + current_rotate;
         }
 
-        tocam = new Ray(player.position,transform.position - player.position);
+        tocam = new Ray(player.position - (Vector3.up*5f) + (player.forward * 5),transform.position - player.position);
         if (Physics.Raycast(tocam,out rch,150f,building_mask))
         {
             rch.collider.gameObject.BroadcastMessage("pingFade");
-
+        }
+        else
+        {
+            tocam = new Ray(player.position - (Vector3.up * 5f) - (player.forward * 5), transform.position - player.position);
+            if (Physics.Raycast(tocam, out rch, 150f, building_mask))
+            {
+                rch.collider.gameObject.BroadcastMessage("pingFade");
+            }
         }
 
 

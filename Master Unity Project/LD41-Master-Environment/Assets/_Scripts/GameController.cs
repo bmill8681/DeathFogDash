@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour {
     public static GameController instance = null;
 
     public Material[] housecolors;
+    public GameObject ChasmPrefab;
 
     public uint level = 3;
 

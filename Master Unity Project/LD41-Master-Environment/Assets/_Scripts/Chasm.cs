@@ -10,12 +10,12 @@ public class Chasm : MonoBehaviour {
     bool update_tile = false;
     float alpha = 1;
     Coroutine isFading = null;
-    MeshRenderer mr;
+    public MeshRenderer mr;
     Tile current_tile = Tile.question_mark;
 
     private void Awake()
     {
-        mr = GetComponent<MeshRenderer>();
+
         instance_material = mr.material;
         color = instance_material.color;
     }
@@ -25,30 +25,34 @@ public class Chasm : MonoBehaviour {
 
         if (isFading == null)
         {
+            current_tile = tile;
             instance_material.SetTexture("_MainTex",WordHandler.instance.lettertile_textures[(int)current_tile]);
             isFading = StartCoroutine(Fade());
             alpha = .06f;
         }
-        if (current_tile != tile) { update_tile = true; }
+        if (current_tile != tile) { update_tile = true; current_tile = tile; }
 
-        alpha += .06f;
+        alpha = Mathf.Clamp(alpha + .06f, 0f, .3f);
     }
 
 
     IEnumerator Fade()
     {
+        Debug.Log("Fadein");
         while (alpha > 0)
         {
             if(update_tile)
             {
                 alpha = 0f;
                 instance_material.SetTexture("_MainTex", WordHandler.instance.lettertile_textures[(int)current_tile]);
+                update_tile = false;
             }
             color.a = alpha;
             instance_material.SetColor("_Color", color);
-            alpha = Mathf.Clamp(alpha - .04f, 0f, .6f);
+            alpha = Mathf.Clamp(alpha - .04f, 0f, .3f);
             yield return null;
         }
+        Debug.Log("Fadeout");
 
         isFading = null;
     }

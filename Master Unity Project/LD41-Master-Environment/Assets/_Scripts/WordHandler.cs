@@ -112,6 +112,7 @@ public class WordHandler : MonoBehaviour {
         {
             return_word[i] = ChartoTile(word[i]);
         }
+        return_word[Random.Range(1, return_word.Length - 2)] = Tile.question_mark;
         return return_word;
     }
 
