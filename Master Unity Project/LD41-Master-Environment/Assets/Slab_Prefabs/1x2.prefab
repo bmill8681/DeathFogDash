@@ -112,3 +112,4 @@ MonoBehaviour:
   possibleTiles:
   - {fileID: 1806715213602786, guid: ab3e4c7167c52c4439ca88502446ea35, type: 2}
   - {fileID: 1892784207154534, guid: feb81d83c901dcb478b83d667f7f0ecf, type: 2}
+  - {fileID: 1318442995488772, guid: c38304416a9425f459b5e9642481dff0, type: 2}
