@@ -8,6 +8,8 @@ public class Tile_Selection_Script : MonoBehaviour {
     public static Tile_Selection_Script instance = null;
     public Image[] tileBorders = new Image[7];
     public RawImage[] tiles_inv = new RawImage[7];
+    public Tile[] tiles = new Tile[7];
+
     public int curTile = 0;
 
     public int getCurTile()
@@ -92,6 +94,7 @@ public class Tile_Selection_Script : MonoBehaviour {
             if (!tiles_inv[i].IsActive())
             {
                 tiles_inv[i].texture = WordHandler.instance.lettertile_textures[(int)tile];
+                tiles[i] = tile;
                 tiles_inv[i].gameObject.SetActive(true);
                 return true;
             }

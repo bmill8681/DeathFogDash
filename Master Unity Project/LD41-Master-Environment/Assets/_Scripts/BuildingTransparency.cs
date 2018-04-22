@@ -19,10 +19,13 @@ public class BuildingTransparency : MonoBehaviour {
     private void Awake()
     {
         mr = GetComponent<MeshRenderer>();
-        int rand = Random.Range(0, 2);
-        building_mat = GameController.instance.housecolors[rand];
-        building_tp_mat = GameController.instance.housecolors[rand + 2];
-        mr.material = building_mat;
+        if (building_mat != GameController.instance.housecolors[2])
+        {
+            int rand = Random.Range(0, 2);
+            building_mat = GameController.instance.housecolors[rand];
+            building_tp_mat = GameController.instance.housecolors[rand + 3];
+            mr.material = building_mat;
+        }
         
     }
 

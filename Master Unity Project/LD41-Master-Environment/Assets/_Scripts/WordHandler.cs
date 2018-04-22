@@ -10,9 +10,11 @@ public class WordHandler : MonoBehaviour {
 
 
     public GameObject letter_tile_prefab;
+    public GameObject LetterPrefab;
+    public GameObject ChasmPrefab;
     public static WordHandler instance;
     public Texture2D[] lettertile_textures;
-    public GameObject LetterPrefab;
+    
     public Tile tester;
     List<string> words_3;
     List<string> words_4;
