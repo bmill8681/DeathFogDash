@@ -24,6 +24,7 @@ public class TileSlot : MonoBehaviour {
             Transform sub = Instantiate(possibleTiles[Random.Range(0, possibleTiles.Length)]).transform;
             sub.position = transform.position;
             sub.rotation = transform.rotation;
+            sub.parent = transform.parent;
             Destroy(this.gameObject);
         }
     }

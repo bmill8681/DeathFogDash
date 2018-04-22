@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class Tile_Selection_Script : MonoBehaviour {
 
+    public static Tile_Selection_Script instance = null;
     public Image[] tileBorders = new Image[7];
-    public static int curTile = 0;
+    public RawImage[] tiles_inv = new RawImage[7];
+    public int curTile = 0;
 
     public int getCurTile()
     {
@@ -15,6 +17,11 @@ public class Tile_Selection_Script : MonoBehaviour {
 
     private void Awake()
     {
+        if (Tile_Selection_Script.instance == null)
+            Tile_Selection_Script.instance = this;
+        else if (Tile_Selection_Script.instance != this)
+            Destroy(this);
+
         for(int x = 1; x < tileBorders.Length; x++)
         {
             Image curBorder = tileBorders[x];
@@ -77,6 +84,22 @@ public class Tile_Selection_Script : MonoBehaviour {
         
 
     }
+
+    public bool AddTile(Tile tile)
+    {
+        for(int i = 0; i < tileBorders.Length; i++)
+        {
+            if (!tiles_inv[i].IsActive())
+            {
+                tiles_inv[i].texture = WordHandler.instance.lettertile_textures[(int)tile];
+                tiles_inv[i].gameObject.SetActive(true);
+                return true;
+            }
+        }
+        return false;
+
+    }
+
 
     private void scrollTileHighlight()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class LetterSlot : MonoBehaviour {
 
     public bool isFilled;
-    
+    char filler = '_';
 
 
 }

@@ -9,11 +9,16 @@ public enum Tile { question_mark = 27, _ = 0, A = 1, B = 2, C = 3, D = 4, E = 5,
 public class WordHandler : MonoBehaviour {
 
 
-
+    public GameObject letter_tile_prefab;
     public static WordHandler instance;
     public Texture2D[] lettertile_textures;
     public GameObject LetterPrefab;
     public Tile tester;
+    List<string> words_3;
+    List<string> words_4;
+    List<string> words_5;
+    List<string> words_6;
+    List<string> words_7;
 
 
     private void Awake()
@@ -22,14 +27,41 @@ public class WordHandler : MonoBehaviour {
             WordHandler.instance = this;
         else if (WordHandler.instance != this)
             Destroy(this.gameObject);
-
+        words_3 = new List<string>();
+        words_4 = new List<string>();
+        words_5 = new List<string>();
+        words_6 = new List<string>();
+        words_7 = new List<string>();
+        string[] text = System.IO.File.ReadAllLines("./Assets/Dictionary/words.txt");
+        for (int i = 0; i < text.Length; i++)
+        {
+            switch (text[i].Length)
+            {
+                case 3:
+                    words_3.Add(text[i]);
+                    break;
+                case 4:
+                    words_4.Add(text[i]);
+                    break;
+                case 5:
+                    words_5.Add(text[i]);
+                    break;
+                case 6:
+                    words_6.Add(text[i]);
+                    break;
+                case 7:
+                    words_7.Add(text[i]);
+                    break;
+                default:
+                    Debug.Log("\"" + text[i] + "\" is not allowed");
+                    break;
+            }
+        }
     }
 
     private void Start()
     {
 
-        Debug.Log(ChartoTile('a'));
-        Debug.Log(ChartoTile('b'));
     }
 
     public Tile ChartoTile(char A)
@@ -50,6 +82,28 @@ public class WordHandler : MonoBehaviour {
     public Tile[] RandomWord(int word_length)
     {
         string word = "Cat";
+
+        switch (word_length)
+        {
+            case 3:
+                word = words_3[Random.Range(0,words_3.Count)];
+                break;
+            case 4:
+                word = words_4[Random.Range(0, words_4.Count)];
+                break;
+            case 5:
+                word = words_5[Random.Range(0, words_5.Count)];
+                break;
+            case 6:
+                word = words_6[Random.Range(0, words_6.Count)];
+                break;
+            case 7:
+                word = words_7[Random.Range(0, words_7.Count)];
+                break;
+            default:
+                Debug.Log("word_length too long, returning CAT instead");
+                break;
+        }
 
         Tile[] return_word = new Tile[word.Length];
         for(int i = 0; i < return_word.Length; i++)
