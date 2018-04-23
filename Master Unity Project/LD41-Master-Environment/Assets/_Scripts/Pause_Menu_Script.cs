@@ -4,19 +4,34 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Pause_Menu_Script : MonoBehaviour {
+    [SerializeField]
+    private float masterVolume = 0.75f;
+    [SerializeField]
+    private float sfxVolume = 0.75f;
+    [SerializeField]
+    private float musicVolume = 0.75f;
+
     public GameObject camPanel;
     public GameObject audioPanel;
     public GameObject playerPanel;
 
     public Slider minimapSlider;
-    public Slider masterVol;
-    public Slider musicVol;
-    public Slider sfxVol;
+    public Slider masterVolSlider;
+    public Slider musicVolSlider;
+    public Slider sfxVolSlider;
     public Slider skinSelector;
     
     public SkinnedMeshRenderer playerSkinRend;
     public SkinnedMeshRenderer[] pSkins = new SkinnedMeshRenderer[3];
 
+    public AudioManagerScript audManager;
+
+    private void Awake()
+    {
+        masterVolSlider.value = masterVolume;
+        musicVolSlider.value = musicVolume;
+        sfxVolSlider.value = sfxVolume;
+    }
 
     public void enableCamSettings()
     {
@@ -106,13 +121,32 @@ public class Pause_Menu_Script : MonoBehaviour {
 
     }
 
-        private void Update()
+    public void adjustMusicVolume()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha8))
+        if (musicVolume != musicVolSlider.value)
         {
-            Debug.Log(playerSkinRend.ToString());
+            musicVolume = musicVolSlider.value * masterVolume;
+            audManager.setMusicVolume(musicVolume);
         }
     }
+    public void adjustSFXVolume()
+    {
+        if (sfxVolume != sfxVolSlider.value)
+        {
+            sfxVolume = sfxVolSlider.value * masterVolume;
+            audManager.setSFXVolume(sfxVolume);
+        }
+    }
+    public void adjustMasterVol()
+    {
+        if(masterVolume != masterVolSlider.value)
+        {
+            masterVolume = masterVolSlider.value;
+            audManager.setMusicVolume(musicVolume * masterVolume);
+            audManager.setSFXVolume(sfxVolume * masterVolume);
+        }
+    }
+
     public void exitToMenu()
     {
         // Put Script Here to exit to main menu

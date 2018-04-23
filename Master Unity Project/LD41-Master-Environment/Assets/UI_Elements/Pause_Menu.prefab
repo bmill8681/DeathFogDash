@@ -1079,7 +1079,18 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114696924585936390}
+        m_MethodName: adjustMasterVol
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114079346785432460
@@ -1407,7 +1418,18 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114696924585936390}
+        m_MethodName: adjustSFXVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114169297634978848
@@ -2366,19 +2388,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272a02853b8566b48bb10d7c0f064fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterVolume: 0.75
+  sfxVolume: 0.75
+  musicVolume: 0.75
   camPanel: {fileID: 1306757297606730}
   audioPanel: {fileID: 1615595296840690}
   playerPanel: {fileID: 1711302480304088}
   minimapSlider: {fileID: 114610257025213332}
-  masterVol: {fileID: 114060798720275836}
-  musicVol: {fileID: 114739126847802030}
-  sfxVol: {fileID: 114159253568497048}
+  masterVolSlider: {fileID: 114060798720275836}
+  musicVolSlider: {fileID: 114739126847802030}
+  sfxVolSlider: {fileID: 114159253568497048}
   skinSelector: {fileID: 114882254638950008}
   playerSkinRend: {fileID: 0}
   pSkins:
   - {fileID: 137423460713478560, guid: 05af780e298b3164cb36ce9dc19e98e6, type: 2}
   - {fileID: 137031351139348738, guid: df409b52a3228ec4e9ac3db926372f33, type: 2}
   - {fileID: 137710178221584720, guid: a351b112ad2e26b40b1e7cbcd31e85ba, type: 2}
+  audManager: {fileID: 0}
 --- !u!114 &114714290122161768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2451,7 +2477,18 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114696924585936390}
+        m_MethodName: adjustMusicVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114792117129928312
@@ -3627,8 +3664,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -152.6, y: 0}
-  m_SizeDelta: {x: 132.9, y: 15}
+  m_AnchoredPosition: {x: -133.75, y: 0}
+  m_SizeDelta: {x: 95.19, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224004569154474864
 RectTransform:
@@ -3927,8 +3964,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -152.6, y: 0}
-  m_SizeDelta: {x: 132.9, y: 15}
+  m_AnchoredPosition: {x: -122.4, y: 1.25}
+  m_SizeDelta: {x: 72.51, y: 12.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224447869553464712
 RectTransform:
@@ -4384,8 +4421,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -152.6, y: 0}
-  m_SizeDelta: {x: 132.9, y: 15}
+  m_AnchoredPosition: {x: -127.76, y: 0}
+  m_SizeDelta: {x: 83.21, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224883731604898822
 RectTransform:
