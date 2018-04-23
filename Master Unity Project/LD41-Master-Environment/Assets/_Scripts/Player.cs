@@ -28,7 +28,7 @@ public class Player : MonoBehaviour {
             Tile tile = other.GetComponent<LetterTile>()._letter;
             if (Tile_Selection_Script.instance.AddTile(tile))
             {
-                //audiosource.PlayOneShot(letter_jingle);
+                AudioManagerScript.instance.playTileSound(0);
                 Destroy(other.gameObject);
             }
 

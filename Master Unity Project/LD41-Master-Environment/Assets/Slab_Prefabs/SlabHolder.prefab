@@ -125,5 +125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleTiles:
   - {fileID: 1358282698976752, guid: ed3f1a6ef73a5ed41a4ca9111dc2fe93, type: 2}
+  - {fileID: 1773456800470228, guid: 7f0b9fa39c8b76f4b9b93b1a32a2df60, type: 2}
+  - {fileID: 1628802670162062, guid: c4513d08a8487314980378c2adf56ae8, type: 2}
+  - {fileID: 1628802670162062, guid: c4513d08a8487314980378c2adf56ae8, type: 2}
+  - {fileID: 1773456800470228, guid: 7f0b9fa39c8b76f4b9b93b1a32a2df60, type: 2}
   isRoot: 0
   blocker: {fileID: 0}

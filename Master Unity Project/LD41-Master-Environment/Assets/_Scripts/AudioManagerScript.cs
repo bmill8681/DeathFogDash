@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AudioManagerScript : MonoBehaviour {
 
+    public static AudioManagerScript instance;
+
     public AudioSource[] sources = new AudioSource[6];
     public AudioClip[]  explosionSounds = new AudioClip[3];
     public AudioClip[]  tileSounds = new AudioClip[3];
@@ -26,6 +28,12 @@ public class AudioManagerScript : MonoBehaviour {
 
     private void Awake()
     {
+        if (AudioManagerScript.instance == null)
+            AudioManagerScript.instance = this;
+        else if (AudioManagerScript.instance != this)
+            Destroy(this.gameObject);
+
+
         // initializing Walking sounds
         playerIsWalking = false;
         sources[4].Stop();
@@ -100,8 +108,8 @@ public class AudioManagerScript : MonoBehaviour {
          * 2 = Invalid / Destroyed Tile Sound
          * */
 
-        sources[3].clip = tileSounds[x];
-        sources[3].Play();
+        sources[2].clip = tileSounds[x];
+        sources[2].Play();
     }
     public void playDestructionSound()
     {
@@ -115,7 +123,19 @@ public class AudioManagerScript : MonoBehaviour {
         }
     }
 
-    
+    public void playCrateSound()
+    {
+        AudioSource source = getSource(0);
+        if (source != null)
+        {
+            AudioClip sClip = explosionSounds[2];
+            source.clip = sClip;
+            source.loop = false;
+            source.Play();
+        }
+    }
+
+
     private AudioSource getSource(int x)
     {
         /*
