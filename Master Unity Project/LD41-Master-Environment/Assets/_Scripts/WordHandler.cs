@@ -64,6 +64,13 @@ public class WordHandler : MonoBehaviour {
         }
     }
 
+    private void Start()
+    {
+        var cli = new System.Net.WebClient();
+        string data = cli.DownloadString("http://app.aspell.net/lookup?dict=en_US;words=word");
+        Debug.Log(data);
+        
+    }
 
     public Tile ChartoTile(char A)
     {
