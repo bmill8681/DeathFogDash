@@ -16,6 +16,7 @@ public class Pause_Menu_Script : MonoBehaviour {
     public GameObject camPanel;
     public GameObject audioPanel;
     public GameObject playerPanel;
+    public GameObject deathPanel;
     public GameObject minimap;
 
     public Slider minimapSlider;
@@ -72,6 +73,10 @@ public class Pause_Menu_Script : MonoBehaviour {
         }
     }
 
+    public void enableDeathPanel()
+    {
+        deathPanel.SetActive(true);
+    }
     public void resumeGame()
     {
         // Add script here to resume the game
