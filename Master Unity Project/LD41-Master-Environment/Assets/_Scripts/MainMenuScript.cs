@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour {
     public GameObject instructionsMenu;
     public GameObject creditsMenu;
-
-
+    SceneManager sManager;
 
     public void enableInstructionsMenu()
     {
@@ -54,6 +54,6 @@ public class MainMenuScript : MonoBehaviour {
 
     public void loadGame()
     {
-        //Call method to load main game scene
+        SceneManager.LoadScene("Main_Auggo");
     }
 }
