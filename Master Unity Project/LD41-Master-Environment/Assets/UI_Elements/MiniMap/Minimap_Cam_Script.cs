@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Minimap_Cam_Script : MonoBehaviour {
 
+    
     Transform playerPos;
     public float cam_height = 10.0f;
     private float zoomDistance = 13f;
