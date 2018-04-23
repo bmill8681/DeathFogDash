@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class FogDistanceIndicator_Script : MonoBehaviour {
 
-    public GameObject player;
-    public GameObject fog;
+    GameObject player;
+    GameObject fog;
     public Image fogUI;
 
 
@@ -14,10 +14,14 @@ public class FogDistanceIndicator_Script : MonoBehaviour {
     private float MIN_HEIGHT = 0.0f;
     private float MAX_SPREAD = 175.0f;
 
-    private void Awake()
+
+    private void Start()
     {
+        player = GameController.instance.player.gameObject;
+        fog = Proceed.instance.deathray.gameObject;
         fogUI.rectTransform.localPosition = new Vector3(0f, 0f, 0f);
     }
+
     void LateUpdate () {
         float pos = getDistance();
         fogUI.rectTransform.localPosition = new Vector3(-5.0f, -pos + 100.0f, 0.0f);

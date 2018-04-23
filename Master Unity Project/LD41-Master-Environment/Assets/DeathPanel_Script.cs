@@ -7,7 +7,6 @@ using TMPro;
 public class DeathPanel_Script : MonoBehaviour {
 
     private float timer;
-    public GameObject gameControl;
     public GameObject[] stats = new GameObject[4];
 
     public Image skull;

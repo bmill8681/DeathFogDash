@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour {
 
     public bool paused = false;
     public int blocks_travelled { get { return Mathf.FloorToInt(player.position.x / 44f); } }
-    public float total_distance_travelled { get { return Mathf.Clamp(player.position.x - player_start_pos, 0f, float.MaxValue ); } }
+    public int total_distance_travelled { get { return Mathf.FloorToInt(Mathf.Clamp(player.position.x - player_start_pos, 0f, float.MaxValue )); } }
     public float distance_to_deathwall { get { return player.position.x - Proceed.instance.deathray.position.x; } }
     public float block_multiplier { get { return Mathf.FloorToInt(raw_mult * 4f) / 4f; } } // raw mult but in increments of .25
     public float raw_mult { get { return Mathf.Clamp(Mathf.Pow(1.25f, blocks_travelled), 1f, 100f); } } // multiplier based on blocks travelled in x direction (how long the player has continued forward)
