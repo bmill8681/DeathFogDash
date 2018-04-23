@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class DeathPanel_Script : MonoBehaviour {
+public class DeathPanel_Script : MonoBehaviour
+{
 
     private float timer;
     public GameObject[] stats = new GameObject[4];
@@ -63,7 +64,8 @@ public class DeathPanel_Script : MonoBehaviour {
         }
     }
 
-    void Start() {
+    void Start()
+    {
         doneFalling = false;
         displayStats = false;
         timer = 0.0f;
@@ -71,8 +73,8 @@ public class DeathPanel_Script : MonoBehaviour {
         disableStats();
     }
 
-    // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         if (true && !doneFalling)
         {
             skull.rectTransform.localPosition = new Vector3(skull.rectTransform.localPosition.x, skull.rectTransform.localPosition.y - (fallSpeed * fallModifier), skull.rectTransform.localPosition.z);
@@ -126,11 +128,11 @@ public class DeathPanel_Script : MonoBehaviour {
 
     public void quiteGame()
     {
-        // load start screen scene
+        UnityEngine.SceneManagement.SceneManager.LoadScene("StartMenu");
     }
 
     public void replayGame()
     {
-        // reload this level
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main_Auggo");
     }
 }
