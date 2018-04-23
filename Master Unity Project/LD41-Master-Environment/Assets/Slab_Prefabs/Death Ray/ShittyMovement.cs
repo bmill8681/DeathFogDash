@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShittyMovement : MonoBehaviour {
-    public float mSpeed = 0.0f;
+    public float mStartSpeed = 0.015f;
+    [SerializeField] float mSpeed;
 
     public Transform[] blades;
 
     void Update () {
         if(!GameController.instance.paused)
         {
+            mSpeed = Mathf.Lerp(mStartSpeed, 0.11f, GameController.instance.raw_mult/100f );
             Vector3 thisDirection = new Vector3(1.0f * mSpeed, 0, 0);
             transform.position += thisDirection;
 

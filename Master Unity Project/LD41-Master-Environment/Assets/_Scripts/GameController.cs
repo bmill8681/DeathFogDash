@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
     public GameObject SlabPrefab;
     public GameObject WallPrefab;
     public Transform player;
+    public Transform spawn;
     public GameObject PauseMenu;
 
 
@@ -24,7 +25,7 @@ public class GameController : MonoBehaviour {
     public float raw_mult { get { return Mathf.Clamp(Mathf.Pow(1.25f, blocks_travelled), 1f, 100f); } } // multiplier based on blocks travelled in x direction (how long the player has continued forward)
 
     public float player_start_pos = 0;
-    public float total_points = 0;
+    public int total_points = 0;
     public PointStyle point_style = PointStyle.EntireWord;
 
 
@@ -43,12 +44,18 @@ public class GameController : MonoBehaviour {
             GameController.instance = this;
         else if (GameController.instance != this)
             Destroy(this);
+
+        player.position = spawn.position;
     }
 
     private void Start()
     {
         player_start_pos = player.position.x;
 
+    }
+
+    void TestonStart()
+    {
         Debug.Log("blocks_travelled: " + blocks_travelled);
         Debug.Log("total_distance_travelled: " + total_distance_travelled);
         Debug.Log("distance_to_deathwall: " + distance_to_deathwall);
@@ -74,7 +81,6 @@ public class GameController : MonoBehaviour {
         Debug.Log("distance_to_deathwall: " + distance_to_deathwall);
         Debug.Log("block_multiplier: " + block_multiplier);
         Debug.Log("raw mult: " + raw_mult);
-
     }
 
     public void ToggleCameraStyle()

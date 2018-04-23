@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Crates : MonoBehaviour
 {
+    public GameObject particles;
+    public GameObject crates;
 
     private void Start()
     {
@@ -16,9 +18,18 @@ public class Crates : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             WordHandler.instance.PlaceRandomLetter(transform);
-            Destroy(this.gameObject);
             AudioManagerScript.instance.playCrateSound();
+            StartCoroutine(blowup());
         }
+    }
+
+    IEnumerator blowup()
+    {
+        particles.SetActive(true);
+        crates.SetActive(false);
+        yield return new WaitForSeconds(.9f);
+        Destroy(this.gameObject);
+        yield return null;
     }
 
 }

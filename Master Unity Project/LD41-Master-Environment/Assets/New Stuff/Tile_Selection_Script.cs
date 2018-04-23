@@ -125,7 +125,6 @@ private void keyTileHighlight() // Highlight tile to use using the alphanumeric 
 
     }
 
-
     private void scrollTileHighlight()
     {
         double scrollDirection = Input.GetAxis("Mouse ScrollWheel");

@@ -16,10 +16,17 @@ public class Player : MonoBehaviour {
             Destroy(this.gameObject);
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
+ //   Vector3 lastpos = Vector3.zero;
+ //   Vector3 thispos = Vector3.zero;
+ //   //float vel = Vector3.zero;
+
+
+ //   // Update is called once per frame
+ //   void Update () {
+ //       lastpos = thispos;
+ //       thispos = transform.position;
+ //      Debug.Log(Vector3.Distance(thispos,lastpos)/Time.deltaTime);
+	//}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -31,8 +38,6 @@ public class Player : MonoBehaviour {
                 AudioManagerScript.instance.playTileSound(0);
                 Destroy(other.gameObject);
             }
-
-
         }
     }
 

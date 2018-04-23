@@ -24,7 +24,7 @@ public class TileCaster : MonoBehaviour {
         {
             hit.collider.BroadcastMessage("pingFade", Tile_Selection_Script.instance.tiles[Tile_Selection_Script.instance.curTile]);
 
-            if (Input.GetMouseButtonDown(0)) { hit.collider.BroadcastMessage("SubmitLetter", Tile_Selection_Script.instance.tiles[Tile_Selection_Script.instance.curTile]); }
+            if (Input.GetMouseButtonDown(0) && Tile_Selection_Script.instance.tiles[Tile_Selection_Script.instance.curTile] != Tile._ && Tile_Selection_Script.instance.tiles[Tile_Selection_Script.instance.curTile] != Tile.question_mark) { hit.collider.BroadcastMessage("SubmitLetter", Tile_Selection_Script.instance.tiles[Tile_Selection_Script.instance.curTile]); }
         }
         
     }
