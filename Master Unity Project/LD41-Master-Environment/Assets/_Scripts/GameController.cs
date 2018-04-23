@@ -11,6 +11,11 @@ public class GameController : MonoBehaviour {
     public GameObject SlabPrefab;
     public GameObject WallPrefab;
     public Transform player;
+    public GameObject PauseMenu;
+    bool paused = false;
+    public int blocks_travelled { get { return Mathf.FloorToInt(player.position.x / 44f); } }
+    public float total_distance_travelled { get { return player.position.x; } }
+
 
 
     public uint level = 3;
@@ -23,13 +28,31 @@ public class GameController : MonoBehaviour {
             Destroy(this);
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
 	}
+
+    public void PauseGame()
+    {
+        if (!paused)
+        {
+            paused = true;
+            Time.timeScale = 0;
+            PauseMenu.SetActive(true);
+        }
+        else { UnPauseGame(); }
+    }
+
+    public void UnPauseGame()
+    {
+        paused = false;
+        Time.timeScale = 1;
+        PauseMenu.SetActive(false);
+    }
+
 }

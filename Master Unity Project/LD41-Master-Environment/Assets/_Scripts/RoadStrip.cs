@@ -88,7 +88,7 @@ public class RoadStrip : MonoBehaviour {
     public void SetWord()
     {
         int level = (int)GameController.instance.level;
-        word = WordHandler.instance.RandomWord(Random.Range((int)Mathf.Clamp(level-1,3, slots.Length-1), (int)Mathf.Clamp(level, 3, slots.Length - 1)));
+        word = WordHandler.instance.RandomWord(Random.Range((int)Mathf.Clamp(level-3,3, slots.Length-1), (int)Mathf.Clamp(level, 3, slots.Length - 1)));
         offset = Random.Range(0, slots.Length - word.Length);
         for(int i = 0; i < word.Length; i++)
         {
