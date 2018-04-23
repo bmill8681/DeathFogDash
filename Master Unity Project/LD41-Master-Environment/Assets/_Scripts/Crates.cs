@@ -5,6 +5,11 @@ using UnityEngine;
 public class Crates : MonoBehaviour
 {
 
+    private void Start()
+    {
+        transform.rotation = Quaternion.Euler(0, Random.value * 360, 0);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         //TODO other break stuff

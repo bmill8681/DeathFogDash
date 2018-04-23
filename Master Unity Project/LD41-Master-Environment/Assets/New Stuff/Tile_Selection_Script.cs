@@ -42,7 +42,20 @@ public class Tile_Selection_Script : MonoBehaviour {
         keyTileHighlight();
     }
 
-    private void keyTileHighlight() // Highlight tile to use using the alphanumeric number keys 1-7
+    public void selectTile(int selectedTile)
+    {
+        if (selectedTile != curTile)
+        {
+            Image curBoarder = tileBorders[curTile];
+            curBoarder.enabled = false;
+            curTile = selectedTile;
+            curBoarder = tileBorders[curTile];
+            curBoarder.enabled = true;
+        }
+    }
+
+
+private void keyTileHighlight() // Highlight tile to use using the alphanumeric number keys 1-7
     {
         int selectedTile = curTile;
 

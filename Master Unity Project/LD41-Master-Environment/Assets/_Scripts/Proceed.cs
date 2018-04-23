@@ -12,6 +12,7 @@ public class Proceed : MonoBehaviour {
     Transform[] left_wall = new Transform[3];
     Transform[] right_wall = new Transform[3];
 
+
     float current_offset = 0;
     float offset = 88f;
     float wall_offset = 10f;
@@ -27,7 +28,6 @@ public class Proceed : MonoBehaviour {
         holder[0] = new GameObject("holder").transform;
         holder[1] = new GameObject("holder").transform;
         holder[2] = new GameObject("holder").transform;
-
     }
 
     private void Start()
