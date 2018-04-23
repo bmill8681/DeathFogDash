@@ -17,7 +17,7 @@ public class Crates : MonoBehaviour
         {
             WordHandler.instance.PlaceRandomLetter(transform);
             Destroy(this.gameObject);
-
+            AudioManagerScript.instance.playCrateSound();
         }
     }
 

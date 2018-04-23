@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour {
     bool paused = false;
     public int blocks_travelled { get { return Mathf.FloorToInt(player.position.x / 44f); } }
     public float total_distance_travelled { get { return player.position.x; } }
-
+    public float distance_to_deathwall { get { return player.position.x - Proceed.instance.deathray.position.x; } }
 
 
     public uint level = 3;

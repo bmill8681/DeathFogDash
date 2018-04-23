@@ -64,10 +64,6 @@ public class WordHandler : MonoBehaviour {
         }
     }
 
-    private void Start()
-    {
-
-    }
 
     public Tile ChartoTile(char A)
     {
@@ -150,20 +146,20 @@ public class WordHandler : MonoBehaviour {
         switch (word.Length)
         {
             case 3:
-                if (words_3.Contains(TilestoString(word))) { return 1 ;}
-                else return -1;
+                if (words_3.Contains(TilestoString(word))) { AudioManagerScript.instance.playTileSound(1); return 1; }
+                else  AudioManagerScript.instance.playTileSound(2);  return -1; 
             case 4:
-                if (words_4.Contains(TilestoString(word))) { return 1; Debug.Log(word.Length + " ddddddd"); }
-                else return -1; Debug.Log(word.Length + " cccc");
+                if (words_4.Contains(TilestoString(word))) { AudioManagerScript.instance.playTileSound(1); return 1; }
+                else AudioManagerScript.instance.playTileSound(2); return -1;
             case 5:
-                if (words_5.Contains(TilestoString(word))) { return 1; }
-                else return -1;
+                if (words_5.Contains(TilestoString(word))) { AudioManagerScript.instance.playTileSound(1); return 1; }
+                else AudioManagerScript.instance.playTileSound(2); return -1;
             case 6:
-                if (words_6.Contains(TilestoString(word))) { return 1; }
-                else return -1;
+                if (words_6.Contains(TilestoString(word))) { AudioManagerScript.instance.playTileSound(1); return 1; }
+                else AudioManagerScript.instance.playTileSound(2); return -1;
             case 7:
-                if (words_7.Contains(TilestoString(word))) { return 1; }
-                else return -1;
+                if (words_7.Contains(TilestoString(word))) { AudioManagerScript.instance.playTileSound(1); return 1; }
+                else AudioManagerScript.instance.playTileSound(2); return -1;
             default:
                 Debug.Log("word_length wrong");
                 return -1;
