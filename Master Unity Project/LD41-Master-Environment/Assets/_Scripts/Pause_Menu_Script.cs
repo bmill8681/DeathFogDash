@@ -10,16 +10,22 @@ public class Pause_Menu_Script : MonoBehaviour {
     private float sfxVolume = 0.75f;
     [SerializeField]
     private float musicVolume = 0.75f;
+    [SerializeField]
+    private float mapZoom = 7.0f;
 
     public GameObject camPanel;
     public GameObject audioPanel;
     public GameObject playerPanel;
+    public GameObject minimap;
 
     public Slider minimapSlider;
     public Slider masterVolSlider;
     public Slider musicVolSlider;
     public Slider sfxVolSlider;
     public Slider skinSelector;
+    public Slider zoomSlider;
+    public Toggle mapToggle;
+    public Camera mapCam;
     
     public SkinnedMeshRenderer playerSkinRend;
     public SkinnedMeshRenderer[] pSkins = new SkinnedMeshRenderer[3];
@@ -146,6 +152,14 @@ public class Pause_Menu_Script : MonoBehaviour {
             audManager.setSFXVolume(sfxVolume * masterVolume);
         }
     }
+    public void adjustMapZoom()
+    {
+        if(mapZoom != zoomSlider.value)
+        {
+            mapZoom = zoomSlider.value;
+            mapCam.orthographicSize = mapZoom;
+        }
+    }
 
     public void exitToMenu()
     {
@@ -155,5 +169,18 @@ public class Pause_Menu_Script : MonoBehaviour {
     public void disableMenu(GameObject menu)
     {
         menu.SetActive(false);
+    }
+
+    public void toggleMinimap()
+    {
+        if(mapToggle.isOn)
+        {
+            minimap.SetActive(true);
+            adjustMapZoom();
+        }
+        else if (!mapToggle.isOn)
+        {
+            minimap.SetActive(false);
+        }
     }
 }
