@@ -8,30 +8,98 @@ public class RoadStrip : MonoBehaviour {
 
 
     public Transform[] slots;
-    Item[] items;
-    public string word;
-    Chasm this_chasm;
+    Transform[] items;
+    public Tile[] word;
     int offset;
+    MeshRenderer mr;
 
-    private void Start()
+    private void Awake()
     {
-        items = new Item[slots.Length];
+        items = new Transform[slots.Length];
+    }
+
+    /// <summary>
+    /// Make the tiles do something and then go away
+    /// </summary>
+    void WordCompleted()
+    {
+        Debug.Log("Word completed " + word.Length);
+        for (int i = 0; i < word.Length; i++)
+        {
+            Destroy(items[offset + i].gameObject);
+            slots[offset + i].gameObject.SetActive(true);
+        }
+    }
+
+    /// <summary>
+    /// Check whether the tile completes a word. If the word is completed and wrong, drop the tile piece into the chasm.
+    /// If the word is not completed, lay down a letter where the chasm was and update the word.
+    /// If the word is completed and the 
+    /// </summary>
+    public void SubmitTile(Tile tile, int index)
+    {
+        Tile[] temp_word = word;
+        temp_word[index] = tile;
+        for(int i = 0; i< temp_word.Length; i++)
+        {
+            if (temp_word[i] == Tile._)
+            {
+                //word not complete yet
+                Debug.Log("not complete");
+                PlaceTileAtChasm(tile, index);
+                word = temp_word;
+                return;
+            }
+        }
+        //word is now complete check if it works
+        if (WordHandler.instance.EvalWord(word) != -1)
+        {
+            //works, complete word, 
+            Debug.Log("complete");
+            PlaceTileAtChasm(tile, index);
+            Debug.Log("complete");
+            word = temp_word;
+            WordCompleted();
+        }
+        else
+        {
+            //make tile fall, don't do anything.
+        }
+        Tile_Selection_Script.instance.Discard();
+        
+    }
+
+    /// <summary>
+    /// delete chasm, place new tile instead
+    /// </summary>
+    void PlaceTileAtChasm(Tile tile, int index)
+    {
+        Transform letter_holder = Instantiate(WordHandler.instance.LetterPrefab, slots[index + offset].position, transform.rotation).transform;
+
+        mr = letter_holder.GetComponent<MeshRenderer>();
+        mr.material.SetTexture("_MainTex", WordHandler.instance.lettertile_textures[(int)word[index]]);
+
+        letter_holder.parent = slots[index + offset].parent;
+
+        Destroy(items[index + offset].gameObject);
+        items[index + offset] = letter_holder;
     }
 
     public void SetWord()
     {
         int level = (int)GameController.instance.level;
-        Tile[] word = WordHandler.instance.RandomWord(Random.Range((int)Mathf.Clamp(level-1,3, slots.Length-1), (int)Mathf.Clamp(level, 3, slots.Length - 1)));
+        word = WordHandler.instance.RandomWord(Random.Range((int)Mathf.Clamp(level-1,3, slots.Length-1), (int)Mathf.Clamp(level, 3, slots.Length - 1)));
         offset = Random.Range(0, slots.Length - word.Length);
-        MeshRenderer mr;
         for(int i = 0; i < word.Length; i++)
         {
-            if (word[i] == Tile.question_mark || word[i] == Tile._)
+            if ( word[i] == Tile.question_mark || word[i] == Tile._ )
             {
-                Transform chasm_holder = Instantiate(GameController.instance.ChasmPrefab, slots[i + offset].position, transform.rotation).transform;
-                this_chasm = chasm_holder.GetComponent<Chasm>();
-                chasm_holder.parent = slots[i + offset].parent;
+                Chasm chasm = Instantiate(GameController.instance.ChasmPrefab, slots[i + offset].position, transform.rotation).GetComponent<Chasm>();
+                chasm.full_word = this;
+                chasm.this_index = i;
+                chasm.transform.parent = slots[i + offset].parent;
                 slots[i + offset].gameObject.SetActive(false);
+                items[i + offset] = chasm.transform;
             }
             else
             {
@@ -40,7 +108,7 @@ public class RoadStrip : MonoBehaviour {
                 mr.material.SetTexture("_MainTex", WordHandler.instance.lettertile_textures[(int)word[i]]);
                 letter_holder.parent = slots[i + offset].parent;
                 slots[i + offset].gameObject.SetActive(false);
-                //items[i + offset] = letter_holder.GetComponent<Item>();
+                items[i + offset] = letter_holder;
             }
         }
 

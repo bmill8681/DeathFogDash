@@ -78,8 +78,26 @@ public class WordHandler : MonoBehaviour {
 
     public char TiletoChar(Tile A)
     {
-        return 'A';
+        if(A == Tile._) { return '_'; }
+        else if(A == Tile.question_mark) { return '?'; }
+        else
+        {
+            return (char)((int)A + 64);
+        }
     }
+
+    public string TilestoString(Tile[] AAAA)
+    {
+
+       char[] str = new char[AAAA.Length];
+       for(int i = 0; i< AAAA.Length; i++)
+       {
+            str[i] = TiletoChar(AAAA[i]);
+       }
+        Debug.Log(new string(str));
+        return new string(str);
+    }
+
 
     public Tile[] RandomWord(int word_length)
     {
@@ -116,17 +134,31 @@ public class WordHandler : MonoBehaviour {
         return return_word;
     }
 
-    public void SpawnWord(GameObject[] roadstrip)
-    {
-
-
-    }
-
 
     public int EvalWord(Tile[] word)
     {
-
-        return -1;
+        switch (word.Length)
+        {
+            case 3:
+                if (words_3.Contains(TilestoString(word))) { return 1 ;}
+                else return -1;
+            case 4:
+                if (words_4.Contains(TilestoString(word))) { return 1; }
+                else return -1;
+            case 5:
+                if (words_5.Contains(TilestoString(word))) { return 1; }
+                else return -1;
+            case 6:
+                if (words_6.Contains(TilestoString(word))) { return 1; }
+                else return -1;
+            case 7:
+                if (words_7.Contains(TilestoString(word))) { return 1; }
+                else return -1;
+            default:
+                Debug.Log("word_length wrong");
+                return -1;
+        }
+        
     }
 
 }

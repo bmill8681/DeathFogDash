@@ -87,6 +87,15 @@ public class Tile_Selection_Script : MonoBehaviour {
 
     }
 
+    public void Discard()
+    {
+        if (tiles_inv[curTile].IsActive())
+        {
+            tiles[curTile] = Tile._;
+            tiles_inv[curTile].gameObject.SetActive(false);
+        }
+    }
+
     public bool AddTile(Tile tile)
     {
         for(int i = 0; i < tileBorders.Length; i++)

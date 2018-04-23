@@ -4,51 +4,38 @@ using UnityEngine;
 
 public class TileSlot : MonoBehaviour {
 
-    //roads: 1 tile
-    //buildings:  2x2, 2x3, 3x3, 3x4
-
-
 
     public GameObject[] possibleTiles;
-
-    //public enum SlotType { building , breakable, tree, subtiles }
-
-    //public int width;
-    //public int length;
-    //public SlotType slot_type;
+    public bool isRoot;
+    //public Transform slot_root;
+    //SlabInit slab;
+    public Blocker blocker;
 
     private void Start()
     {
+        //if (isRoot)
+        //{
+        //    //slab = transform.parent.parent.GetComponent<SlabInit>();
+        //    //if(slab == null) { Debug.LogError("slab doesn't exist at " + transform.position); }
+        //    else { slot_root = transform; }
+        //}
         if (possibleTiles.Length > 0)
         {
             Transform sub = Instantiate(possibleTiles[Random.Range(0, possibleTiles.Length)]).transform;
             sub.position = transform.position;
             sub.rotation = transform.rotation;
-            sub.parent = transform.parent;
-            Destroy(this.gameObject);
+
+            if (!isRoot)
+            {
+                Destroy(this.gameObject);
+                sub.parent = transform.parent;
+            }
+            else
+            {
+                sub.parent = transform;
+            }
         }
     }
-
-    //void InitializeTile()
-    //{
-    //    switch (slot_type) {
-    //        case SlotType.building:
-    //            InitializeBuilding();
-    //            return;
-    //        case SlotType.breakable:
-    //            return;
-    //        case SlotType.tree:
-    //            return;
-    //        default:
-    //            return;
-    //    }
-    //}
-
-    //void InitializeBuilding()
-    //{
-
-    //} 
-
 
 
 }

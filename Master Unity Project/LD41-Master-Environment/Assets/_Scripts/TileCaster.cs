@@ -8,6 +8,8 @@ public class TileCaster : MonoBehaviour {
     Ray ray;
     RaycastHit hit;
     public LayerMask chasm_mask;
+    public LayerMask gui_trash;
+
 
 	// Use this for initialization
 	void Start () {
@@ -18,10 +20,13 @@ public class TileCaster : MonoBehaviour {
 	void Update ()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray, out hit, 1000, chasm_mask))
+        if (Physics.Raycast(ray, out hit, 1000, chasm_mask))
         {
-            hit.collider.GetComponent<Chasm>().pingFade(Tile_Selection_Script.instance.tiles[Tile_Selection_Script.instance.curTile]);
+            hit.collider.BroadcastMessage("pingFade", Tile_Selection_Script.instance.tiles[Tile_Selection_Script.instance.curTile]);
+
+            if (Input.GetMouseButtonDown(0)) { hit.collider.BroadcastMessage("SubmitLetter", Tile_Selection_Script.instance.tiles[Tile_Selection_Script.instance.curTile]); }
         }
+        
     }
 
 
