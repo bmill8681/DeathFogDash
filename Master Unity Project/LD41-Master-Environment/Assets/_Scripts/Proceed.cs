@@ -11,7 +11,7 @@ public class Proceed : MonoBehaviour {
     public Transform[] current = new Transform[3];
     Transform[] left_wall = new Transform[3];
     Transform[] right_wall = new Transform[3];
-
+    public bool paused = false;
 
     float current_offset = 0;
     float offset = 88f;
