@@ -53,7 +53,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4930262930711144}
-  - component: {fileID: 65027613040753530}
   m_Layer: 0
   m_Name: 1x2_B2_Prefab
   m_TagString: Untagged
@@ -719,18 +718,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1033182466631816}
   m_Mesh: {fileID: 4300000, guid: dcd3ac034093c554ea259a5ba9f8d916, type: 3}
---- !u!65 &65027613040753530
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1126301406865042}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 15.5, y: 14, z: 9.25}
-  m_Center: {x: -0.2, y: 7, z: 0.125}
 --- !u!114 &114172891495126398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -742,5 +729,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c592a22dfdf8649a9fcd2232b7a956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building_mat: {fileID: 2100000, guid: 68e5261f4f7e7994a9a3fe531959f90b, type: 2}
-  building_tp_mat: {fileID: 2100000, guid: fe259019e56ad544db055dc29c6c8f9d, type: 2}
+  type1: 0
+  search_transform: {fileID: 0}

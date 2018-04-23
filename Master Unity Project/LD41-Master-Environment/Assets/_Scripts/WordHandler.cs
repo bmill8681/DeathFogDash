@@ -11,10 +11,13 @@ public class WordHandler : MonoBehaviour {
 
     public GameObject letter_tile_prefab;
     public GameObject LetterPrefab;
-    public GameObject ChasmPrefab;
+    public GameObject letter_crate_prefab;
     public static WordHandler instance;
     public Texture2D[] lettertile_textures;
-    
+
+    public Transform tile_daddy;
+    public Transform crate_daddy;
+
     public Tile tester;
     List<string> words_3;
     List<string> words_4;
@@ -40,19 +43,19 @@ public class WordHandler : MonoBehaviour {
             switch (text[i].Length)
             {
                 case 3:
-                    words_3.Add(text[i]);
+                    words_3.Add(text[i].ToUpper());
                     break;
                 case 4:
-                    words_4.Add(text[i]);
+                    words_4.Add(text[i].ToUpper());
                     break;
                 case 5:
-                    words_5.Add(text[i]);
+                    words_5.Add(text[i].ToUpper());
                     break;
                 case 6:
-                    words_6.Add(text[i]);
+                    words_6.Add(text[i].ToUpper());
                     break;
                 case 7:
-                    words_7.Add(text[i]);
+                    words_7.Add(text[i].ToUpper());
                     break;
                 default:
                     Debug.Log("\"" + text[i] + "\" is not allowed");
@@ -95,9 +98,15 @@ public class WordHandler : MonoBehaviour {
             str[i] = TiletoChar(AAAA[i]);
        }
         Debug.Log(new string(str));
-        return new string(str);
+        return (new string(str));
     }
 
+    
+
+    public void PlaceRandomLetter(Transform place)
+    {
+        Instantiate(WordHandler.instance.letter_tile_prefab, place.position, Quaternion.identity, Proceed.instance.holder[1]);
+    }
 
     public Tile[] RandomWord(int word_length)
     {
@@ -137,14 +146,15 @@ public class WordHandler : MonoBehaviour {
 
     public int EvalWord(Tile[] word)
     {
+        Debug.Log(word.Length + " bbbbb" );
         switch (word.Length)
         {
             case 3:
                 if (words_3.Contains(TilestoString(word))) { return 1 ;}
                 else return -1;
             case 4:
-                if (words_4.Contains(TilestoString(word))) { return 1; }
-                else return -1;
+                if (words_4.Contains(TilestoString(word))) { return 1; Debug.Log(word.Length + " ddddddd"); }
+                else return -1; Debug.Log(word.Length + " cccc");
             case 5:
                 if (words_5.Contains(TilestoString(word))) { return 1; }
                 else return -1;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Minimap_Cam_Script : MonoBehaviour {
 
-    public Transform playerPos;
+    Transform playerPos;
     public float cam_height = 10.0f;
     private float zoomDistance = 13f;
     private Camera miniCam;
@@ -13,6 +13,7 @@ public class Minimap_Cam_Script : MonoBehaviour {
         miniCam = this.GetComponent<Camera>();
         miniCam.orthographic = true;
         setMiniCamZoom();
+        playerPos = GameController.instance.player;
     }
 
     // Update is called once per frame

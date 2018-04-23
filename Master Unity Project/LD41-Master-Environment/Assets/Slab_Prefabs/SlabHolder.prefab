@@ -9,45 +9,74 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1865983658834716}
+  m_RootGameObject: {fileID: 1320327390284846}
   m_IsPrefabParent: 1
---- !u!1 &1865983658834716
+--- !u!1 &1320327390284846
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4889903150008110}
-  - component: {fileID: 33800472786467052}
-  - component: {fileID: 23684398989820620}
-  - component: {fileID: 114577755376805172}
+  - component: {fileID: 4601119353789002}
   m_Layer: 0
-  m_Name: 2x2
+  m_Name: SlabHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4889903150008110
+--- !u!1 &1791563414415944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4256274839562218}
+  - component: {fileID: 33887568547950292}
+  - component: {fileID: 23096776793439856}
+  - component: {fileID: 114949345745773860}
+  m_Layer: 0
+  m_Name: 10x10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4256274839562218
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1865983658834716}
+  m_GameObject: {fileID: 1791563414415944}
+  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 8.8, y: 1, z: 8.8}
+  m_Children: []
+  m_Father: {fileID: 4601119353789002}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4601119353789002
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1320327390284846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
-  m_Children: []
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4256274839562218}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23684398989820620
+--- !u!23 &23096776793439856
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1865983658834716}
+  m_GameObject: {fileID: 1791563414415944}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -56,7 +85,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b05b071a34182fd419d9e8fb870b1758, type: 2}
+  - {fileID: 2100000, guid: 2c4ffcd1540986e42933b71f4d024cd5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,26 +105,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33800472786467052
+--- !u!33 &33887568547950292
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1865983658834716}
+  m_GameObject: {fileID: 1791563414415944}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114577755376805172
+--- !u!114 &114949345745773860
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1865983658834716}
+  m_GameObject: {fileID: 1791563414415944}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf4a5274a73e8d04ab57052b16f0a68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   possibleTiles:
-  - {fileID: 1982782106195154, guid: d248d47069ee7c345a7095775e796c35, type: 2}
-  - {fileID: 1750629011696928, guid: 3ccac62380949824094fade2867c22ae, type: 2}
+  - {fileID: 1358282698976752, guid: ed3f1a6ef73a5ed41a4ca9111dc2fe93, type: 2}
   isRoot: 0
   blocker: {fileID: 0}

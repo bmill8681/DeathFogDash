@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour {
     public GameObject ChasmPrefab;
     public GameObject SlabPrefab;
     public GameObject WallPrefab;
+    public Transform player;
 
 
     public uint level = 3;
