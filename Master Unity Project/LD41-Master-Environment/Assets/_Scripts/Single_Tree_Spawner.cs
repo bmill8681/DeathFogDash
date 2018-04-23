@@ -16,6 +16,7 @@ public class Single_Tree_Spawner : MonoBehaviour
         {
             GameObject newTree = Instantiate(trees[objNum], transform.position, transform.rotation);
             newTree.transform.localScale = new Vector3(scaleFactor * transform.localScale.x, scaleFactor * transform.localScale.y, scaleFactor * transform.localScale.z);
+            newTree.transform.parent = transform.parent;
         }
         Destroy(this.gameObject);
     }

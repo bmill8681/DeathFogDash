@@ -39,8 +39,9 @@ GameObject:
   - component: {fileID: 33316037713761714}
   - component: {fileID: 23946076881388830}
   - component: {fileID: 65431406390181692}
-  - component: {fileID: 198112335008369350}
+  - component: {fileID: 114299687376576110}
   - component: {fileID: 199772984753366998}
+  - component: {fileID: 198112335008369350}
   m_Layer: 9
   m_Name: Hole_With_Particles
   m_TagString: Untagged
@@ -55,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1929805322626746}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -15.3}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4866244013422698}
@@ -169,6 +170,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9999999, y: 3.25, z: 2}
   m_Center: {x: 0, y: -0.625, z: 0}
+--- !u!114 &114299687376576110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1929805322626746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ee504a2200da14ca2e718de379948f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  full_word: {fileID: 0}
+  this_index: 0
+  mr: {fileID: 23593529089823806}
 --- !u!198 &198112335008369350
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -7,7 +7,7 @@ public class CameraFollowPlayer : MonoBehaviour {
 
 
 
-    public Transform player;
+    Transform player;
 
     float target_rotate = 0f;
     float current_rotate = 0f;
@@ -18,6 +18,11 @@ public class CameraFollowPlayer : MonoBehaviour {
     RaycastHit rch;
     Ray tocam;
     public LayerMask building_mask;
+
+    private void Awake()
+    {
+        player = GameController.instance.player;
+    }
 
     private void Start()
     {

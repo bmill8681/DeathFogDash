@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4315630381287302}
   - component: {fileID: 33170639264118042}
   - component: {fileID: 23968958815681050}
-  - component: {fileID: 65751999937519572}
   - component: {fileID: 114634983504766442}
   m_Layer: 8
   m_Name: Building_1x1_1
@@ -114,18 +113,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1228736174662400}
   m_Mesh: {fileID: 4300000, guid: 7c4cf6b1788c07a498d63bd93cd66b5b, type: 3}
---- !u!65 &65751999937519572
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1228736174662400}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.4962435, y: 0.8300265, z: 1.4962435}
-  m_Center: {x: -0.02454862, y: 0.4150132, z: 0.02454853}
 --- !u!114 &114525911445458384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,6 +125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleTiles: []
+  isRoot: 0
+  blocker: {fileID: 0}
 --- !u!114 &114634983504766442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,5 +138,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c592a22dfdf8649a9fcd2232b7a956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building_mat: {fileID: 2100000, guid: 503f50cc4dffd224397bf5a3cbb69979, type: 2}
-  building_tp_mat: {fileID: 2100000, guid: a042d8538fb1ed9409d6b0e7070e3332, type: 2}
+  type1: 1
+  search_transform: {fileID: 0}

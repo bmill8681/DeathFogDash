@@ -49,7 +49,7 @@ public class BuildingTransparency : MonoBehaviour {
             }
             else { search_transform = search_transform.parent; }
         }
-        Debug.Log("finished search " + foundroot);
+
         
     }
 

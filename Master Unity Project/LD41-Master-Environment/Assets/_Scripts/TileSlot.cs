@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TileSlot : MonoBehaviour {
 
-
     public GameObject[] possibleTiles;
     public bool isRoot;
     //public Transform slot_root;
@@ -27,8 +26,8 @@ public class TileSlot : MonoBehaviour {
 
             if (!isRoot)
             {
-                Destroy(this.gameObject);
                 sub.parent = transform.parent;
+                Destroy(this.gameObject);
             }
             else
             {

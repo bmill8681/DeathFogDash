@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4994884835684802}
   - component: {fileID: 33245593727591744}
-  - component: {fileID: 64560772942948086}
   - component: {fileID: 23982106413852348}
   - component: {fileID: 114204134010146592}
   m_Layer: 0
@@ -55,7 +54,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4884037124695424}
   - component: {fileID: 33204597102803224}
-  - component: {fileID: 64405013642537594}
   - component: {fileID: 23143177342161522}
   - component: {fileID: 114556937879849090}
   m_Layer: 0
@@ -195,34 +193,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1806715213602786}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64405013642537594
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1827864286565680}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64560772942948086
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1375260408196140}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &114204134010146592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,6 +208,8 @@ MonoBehaviour:
   - {fileID: 1534959882659194, guid: 2b7d2804020be41448c4e1a770a360c7, type: 2}
   - {fileID: 1119711809280226, guid: aa11efe40d33e444e8748c3749a2fdc4, type: 2}
   - {fileID: 1789938512956458, guid: f502efd7d9b856141bd8ddab57771356, type: 2}
+  isRoot: 0
+  blocker: {fileID: 0}
 --- !u!114 &114556937879849090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,3 +225,5 @@ MonoBehaviour:
   - {fileID: 1534959882659194, guid: 2b7d2804020be41448c4e1a770a360c7, type: 2}
   - {fileID: 1119711809280226, guid: aa11efe40d33e444e8748c3749a2fdc4, type: 2}
   - {fileID: 1789938512956458, guid: f502efd7d9b856141bd8ddab57771356, type: 2}
+  isRoot: 0
+  blocker: {fileID: 0}
