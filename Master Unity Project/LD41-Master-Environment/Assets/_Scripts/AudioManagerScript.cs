@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManagerScript : MonoBehaviour {
 
@@ -12,6 +13,8 @@ public class AudioManagerScript : MonoBehaviour {
     public AudioClip[] uiSounds;
     public AudioClip    walkingSound;
     public AudioClip    bgMusic;
+    public AudioClip    menuClickClip;
+    private SceneManager sManager;
 
     /*  NOTES
      *  
@@ -40,7 +43,6 @@ public class AudioManagerScript : MonoBehaviour {
         sources[4].Stop();
         sources[4].clip = walkingSound;
         sources[4].loop = true;
-
         // ensuring all point clips are not set to loop
         for(int x = 0; x < 3; x++)
         {
@@ -50,7 +52,8 @@ public class AudioManagerScript : MonoBehaviour {
         // setting loop and playing bg music
         sources[3].loop = true;
         sources[3].clip = bgMusic;
-        sources[3].Play();
+        if(SceneManager.GetActiveScene().name != "StartMenu")
+            sources[3].Play();
     }
 
     private void LateUpdate()
@@ -172,5 +175,11 @@ public class AudioManagerScript : MonoBehaviour {
         }
 
         return source;
+    }
+
+    public void menuClick()
+    {
+        sources[5].clip = menuClickClip;
+        sources[5].Play();
     }
 }

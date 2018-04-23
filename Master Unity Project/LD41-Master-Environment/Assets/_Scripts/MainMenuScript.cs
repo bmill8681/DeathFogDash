@@ -51,4 +51,9 @@ public class MainMenuScript : MonoBehaviour {
     {
         //Replace this with code to save settings and high score data
     }
+
+    public void loadGame()
+    {
+        //Call method to load main game scene
+    }
 }

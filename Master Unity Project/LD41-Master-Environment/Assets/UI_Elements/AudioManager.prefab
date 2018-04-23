@@ -469,7 +469,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bd0dad80f7de52a4a8708e7212a64779, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -549,7 +549,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bd0dad80f7de52a4a8708e7212a64779, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -629,7 +629,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bd0dad80f7de52a4a8708e7212a64779, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -727,5 +727,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 66bd74152d921fc46bc3f68df3122d13, type: 3}
   - {fileID: 8300000, guid: 4ce63ab32eddbfe4d924f5e546095f7c, type: 3}
   - {fileID: 8300000, guid: 6af16653d7a95ec46b7e9b74374dd2e3, type: 3}
+  uiSounds: []
   walkingSound: {fileID: 8300000, guid: 6af16653d7a95ec46b7e9b74374dd2e3, type: 3}
   bgMusic: {fileID: 8300000, guid: 3ed824620690e0147ab375f746a17a18, type: 3}
+  menuClickClip: {fileID: 8300000, guid: 113b116b9cc53ca47b1d4356566ce067, type: 3}
