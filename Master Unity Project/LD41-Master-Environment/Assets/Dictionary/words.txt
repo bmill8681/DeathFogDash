@@ -283,7 +283,6 @@ Andrei
 Andres
 Andrew
 Andrews
-Andrianampoinimerina
 Android
 Andy
 Angara
@@ -7331,7 +7330,6 @@ anthem
 anther
 anthill
 anthrax
-anthropomorphically
 anti
 antic
 antigen
@@ -9768,7 +9766,6 @@ comp
 compact
 company
 compare
-compartmentalization
 compass
 compeer
 compel
@@ -9972,8 +9969,6 @@ counsel
 count
 counted
 counter
-counterintelligence
-counterrevolutionary
 country
 county
 coup
@@ -10571,7 +10566,6 @@ dentist
 denture
 denude
 deny
-departmentalization
 depict
 deplete
 deplore
@@ -11294,14 +11288,6 @@ elder
 eldest
 elect
 elector
-electrocardiographs
-electrocardiography
-electroencephalogram
-electroencephalograph
-electroencephalographic
-electroencephalographs
-electroencephalography
-electromagnetically
 elegant
 elegiac
 elegy
@@ -11668,7 +11654,6 @@ extol
 extort
 extra
 extract
-extraterritoriality
 extreme
 extrude
 exude
@@ -13882,7 +13867,6 @@ hymen
 hymn
 hymnal
 hype
-hyperparathyroidism
 hyphen
 hypo
 hyssop
@@ -14027,7 +14011,6 @@ indie
 indigo
 indite
 indium
-individualistically
 induce
 inducer
 induct
@@ -14108,7 +14091,6 @@ instant
 instar
 instate
 instead
-institutionalization
 instr
 insular
 insulin
@@ -14122,11 +14104,9 @@ integer
 intense
 intent
 inter
-interdenominational
 interim
 interj
 intern
-internationalization
 intro
 introit
 intrude
@@ -16356,7 +16336,6 @@ none
 nonfat
 nonfood
 nonplus
-nonrepresentational
 nonskid
 nonslip
 nonstop
@@ -17878,7 +17857,6 @@ prodigy
 produce
 prof
 profane
-professionalization
 proffer
 profit
 profuse
@@ -20607,7 +20585,6 @@ stove
 stow
 stowage
 strafe
-straightforwardness
 strain
 strait
 strand

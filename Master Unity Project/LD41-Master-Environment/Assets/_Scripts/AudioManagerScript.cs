@@ -9,6 +9,7 @@ public class AudioManagerScript : MonoBehaviour {
     public AudioSource[] sources = new AudioSource[6];
     public AudioClip[]  explosionSounds = new AudioClip[3];
     public AudioClip[]  tileSounds = new AudioClip[3];
+    public AudioClip[] uiSounds;
     public AudioClip    walkingSound;
     public AudioClip    bgMusic;
 
@@ -133,6 +134,18 @@ public class AudioManagerScript : MonoBehaviour {
             source.loop = false;
             source.Play();
         }
+    }
+
+    public void PlayUISound(int x)
+    {
+        /*
+         * 0 = select tile
+         * 1 = discard tile
+         * */
+        AudioClip sClip = uiSounds[x];
+        sources[5].clip = sClip;
+        sources[5].loop = false;
+        sources[5].Play();
     }
 
 

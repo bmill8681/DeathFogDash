@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PointStyle { PlacedLetterOnly, EntireWord, Everything }
 
 public class GameController : MonoBehaviour {
 
@@ -13,10 +14,19 @@ public class GameController : MonoBehaviour {
     public GameObject WallPrefab;
     public Transform player;
     public GameObject PauseMenu;
+
+
     public bool paused = false;
     public int blocks_travelled { get { return Mathf.FloorToInt(player.position.x / 44f); } }
-    public float total_distance_travelled { get { return player.position.x; } }
+    public float total_distance_travelled { get { return Mathf.Clamp(player.position.x - player_start_pos, 0f, float.MaxValue ); } }
     public float distance_to_deathwall { get { return player.position.x - Proceed.instance.deathray.position.x; } }
+    public float block_multiplier { get { return Mathf.FloorToInt(raw_mult * 4f) / 4f; } } // raw mult but in increments of .25
+    public float raw_mult { get { return Mathf.Clamp(Mathf.Pow(1.25f, blocks_travelled), 1f, 100f); } } // multiplier based on blocks travelled in x direction (how long the player has continued forward)
+
+    public float player_start_pos = 0;
+    public float total_points = 0;
+    public PointStyle point_style = PointStyle.EntireWord;
+
 
     bool ThirdPersonOn = false;
     public GameObject top_down_Camera;
@@ -33,6 +43,38 @@ public class GameController : MonoBehaviour {
             GameController.instance = this;
         else if (GameController.instance != this)
             Destroy(this);
+    }
+
+    private void Start()
+    {
+        player_start_pos = player.position.x;
+
+        Debug.Log("blocks_travelled: " + blocks_travelled);
+        Debug.Log("total_distance_travelled: " + total_distance_travelled);
+        Debug.Log("distance_to_deathwall: " + distance_to_deathwall);
+        Debug.Log("block_multiplier: " + block_multiplier);
+        Debug.Log("raw mult: " + raw_mult);
+        player.position += Vector3.right * 30f;
+
+        Debug.Log("blocks_travelled: " + blocks_travelled);
+        Debug.Log("total_distance_travelled: " + total_distance_travelled);
+        Debug.Log("distance_to_deathwall: " + distance_to_deathwall);
+        Debug.Log("block_multiplier: " + block_multiplier);
+        Debug.Log("raw mult: " + raw_mult);
+        player.position += Vector3.right * 150f;
+
+        Debug.Log("blocks_travelled: " + blocks_travelled);
+        Debug.Log("total_distance_travelled: " + total_distance_travelled);
+        Debug.Log("distance_to_deathwall: " + distance_to_deathwall);
+        Debug.Log("block_multiplier: " + block_multiplier);
+        Debug.Log("raw mult: " + raw_mult);
+        player.position += Vector3.right * 300f;
+        Debug.Log("blocks_travelled: " + blocks_travelled);
+        Debug.Log("total_distance_travelled: " + total_distance_travelled);
+        Debug.Log("distance_to_deathwall: " + distance_to_deathwall);
+        Debug.Log("block_multiplier: " + block_multiplier);
+        Debug.Log("raw mult: " + raw_mult);
+
     }
 
     public void ToggleCameraStyle()

@@ -48,6 +48,7 @@ public class RoadStrip : MonoBehaviour {
                 Debug.Log("not complete");
                 PlaceTileAtChasm(tile, index);
                 word = temp_word;
+                if (GameController.instance.point_style == PointStyle.PlacedLetterOnly) { GameController.instance.total_points += Mathf.FloorToInt(GameController.instance.block_multiplier * WordHandler.GetCharValue(WordHandler.TiletoChar(tile))); }
                 return;
             }
         }
@@ -55,11 +56,10 @@ public class RoadStrip : MonoBehaviour {
         if (WordHandler.instance.EvalWord(word) != -1)
         {
             //works, complete word, 
-            Debug.Log("complete");
             PlaceTileAtChasm(tile, index);
-            Debug.Log("complete");
             word = temp_word;
             WordCompleted();
+            if(GameController.instance.point_style == PointStyle.PlacedLetterOnly) { GameController.instance.total_points += Mathf.FloorToInt(GameController.instance.block_multiplier * WordHandler.GetCharValue(WordHandler.TiletoChar(tile))); }
         }
         else
         {

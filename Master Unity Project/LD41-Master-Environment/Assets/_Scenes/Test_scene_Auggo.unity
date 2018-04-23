@@ -113,6 +113,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &46165505 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4102245449327448, guid: 2a2930dbda19b884da5052d2730df2ad,
+    type: 2}
+  m_PrefabInternal: {fileID: 1097915801}
 --- !u!1 &74150904
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,6 +463,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mSpeed: 0.02
+  blades:
+  - {fileID: 1138551485}
+  - {fileID: 568796918}
+  - {fileID: 46165505}
+  - {fileID: 1708711032}
+  - {fileID: 1398153717}
 --- !u!1 &302081122
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,6 +996,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &568796918 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4758641079119098, guid: 2a2930dbda19b884da5052d2730df2ad,
+    type: 2}
+  m_PrefabInternal: {fileID: 1097915801}
 --- !u!1001 &680681978
 Prefab:
   m_ObjectHideFlags: 0
@@ -1419,9 +1435,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 44c4456c20960694596ac5329de6fd20, type: 3}
   - {fileID: 2800000, guid: d9e5b8700045a3742ab0c25d7b7d8dca, type: 3}
   - {fileID: 2800000, guid: 06b3af999f2fb3d479d579fc314c21d1, type: 3}
-  tile_daddy: {fileID: 81841087}
-  crate_daddy: {fileID: 1710762899}
-  tester: 0
+  total_tiles: 98
 --- !u!4 &735487558
 Transform:
   m_ObjectHideFlags: 0
@@ -1461,6 +1475,9 @@ MonoBehaviour:
   player: {fileID: 2117714275}
   PauseMenu: {fileID: 219082045}
   paused: 0
+  player_start_pos: 0
+  total_points: 0
+  point_style: 1
   top_down_Camera: {fileID: 1174605988}
   third_person_Camera: {fileID: 917739174}
   MiniMap: {fileID: 770151777}
@@ -1767,7 +1784,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4184687223867644, guid: 2a2930dbda19b884da5052d2730df2ad, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4184687223867644, guid: 2a2930dbda19b884da5052d2730df2ad, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1797,6 +1814,26 @@ Prefab:
         type: 2}
       propertyPath: m_DynamicOccludee
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050201498993696, guid: 2a2930dbda19b884da5052d2730df2ad, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050201498993696, guid: 2a2930dbda19b884da5052d2730df2ad, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050201498993696, guid: 2a2930dbda19b884da5052d2730df2ad, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.004363368
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050201498993696, guid: 2a2930dbda19b884da5052d2730df2ad, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999905
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050201498993696, guid: 2a2930dbda19b884da5052d2730df2ad, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a2930dbda19b884da5052d2730df2ad, type: 2}
@@ -1874,6 +1911,11 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1114027450}
+--- !u!4 &1138551485 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4050201498993696, guid: 2a2930dbda19b884da5052d2730df2ad,
+    type: 2}
+  m_PrefabInternal: {fileID: 1097915801}
 --- !u!1 &1174605988
 GameObject:
   m_ObjectHideFlags: 0
@@ -2271,6 +2313,11 @@ SkinnedMeshRenderer:
   m_PrefabParentObject: {fileID: 137269597090715226, guid: 80d2ceaa63fa6b74297e6fe32c66d092,
     type: 2}
   m_PrefabInternal: {fileID: 1752109517}
+--- !u!4 &1398153717 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4308539309711072, guid: 2a2930dbda19b884da5052d2730df2ad,
+    type: 2}
+  m_PrefabInternal: {fileID: 1097915801}
 --- !u!1 &1430359841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2550,6 +2597,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!4 &1708711032 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4968210839160044, guid: 2a2930dbda19b884da5052d2730df2ad,
+    type: 2}
+  m_PrefabInternal: {fileID: 1097915801}
 --- !u!1 &1710762898
 GameObject:
   m_ObjectHideFlags: 0

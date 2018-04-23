@@ -5,7 +5,6 @@ using UnityEngine;
 public enum Tile { question_mark = 27, _ = 0, A = 1, B = 2, C = 3, D = 4, E = 5, F = 6, G = 7, H = 8, I = 9, J = 10, K = 11, L = 12, M = 13, N = 14, O = 15, P = 16, Q = 17, R = 18, S = 19, T = 20, U = 21, V = 22, W = 23, X = 24, Y = 25, Z = 26 }
 
 
-
 public class WordHandler : MonoBehaviour {
 
 
@@ -15,10 +14,10 @@ public class WordHandler : MonoBehaviour {
     public static WordHandler instance;
     public Texture2D[] lettertile_textures;
 
-    public Transform tile_daddy;
-    public Transform crate_daddy;
+    public static int[] points = new int[]{ 0, 1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10, 0 };
+    public static Tile[] chance = new Tile[] { Tile.J, Tile.K, Tile.Q, Tile.X, Tile.Z, Tile.B, Tile.C, Tile.F, Tile.H, Tile.M, Tile.P, Tile.V, Tile.W, Tile.Y, Tile.G, Tile.D, Tile.L, Tile.S, Tile.U, Tile.N, Tile.R, Tile.T, Tile.O, Tile.A, Tile.I, Tile.E };
+    public int total_tiles = 98;
 
-    public Tile tester;
     List<string> words_3;
     List<string> words_4;
     List<string> words_5;
@@ -64,25 +63,16 @@ public class WordHandler : MonoBehaviour {
         }
     }
 
-    private void Start()
-    {
-        var cli = new System.Net.WebClient();
-        string data = cli.DownloadString("http://app.aspell.net/lookup?dict=en_US;words=word");
-        Debug.Log(data);
-        
-    }
-
-    public Tile ChartoTile(char A)
+    public static Tile ChartoTile(char A)
     {
         if (char.IsLetter(A))
         {
-            tester = (Tile)((int)(char.ToUpper(A)));
             return (Tile)((int)(char.ToUpper(A)) - 64);
         }
         else return Tile._;
     }
 
-    public char TiletoChar(Tile A)
+    public static char TiletoChar(Tile A)
     {
         if(A == Tile._) { return '_'; }
         else if(A == Tile.question_mark) { return '?'; }
@@ -92,7 +82,7 @@ public class WordHandler : MonoBehaviour {
         }
     }
 
-    public string TilestoString(Tile[] AAAA)
+    public static string TilestoString(Tile[] AAAA)
     {
 
        char[] str = new char[AAAA.Length];
@@ -100,11 +90,67 @@ public class WordHandler : MonoBehaviour {
        {
             str[i] = TiletoChar(AAAA[i]);
        }
-        Debug.Log(new string(str));
         return (new string(str));
     }
 
-    
+    //private void Start()
+    //{
+    //    for (int i = 1; i < 27; i++)
+    //    {
+
+    //        Debug.Log("Points for " + TiletoChar((Tile)i) + ": " + points[i]);
+    //    }
+    //    char[] c = "Helloworld".ToCharArray();
+    //    Debug.Log(GetWordValue(c));
+    //    Debug.Log(GetWordValue(new string(c)));
+    //    Debug.Log(GetWordValue("Helloworld"));
+    //}
+
+
+    public static int GetCharValue(char c)
+    {
+        return points[(int)ChartoTile(c)];
+    }
+
+    public int GetTileValue(Tile tile)
+    {
+        return points[(int)tile];
+    }
+
+    public static int GetWordValue(string s)
+    {
+        int ret_val = 0;
+        for(int i = 0; i < s.Length; i++)
+        {
+            ret_val += GetCharValue(s[i]);
+
+        }
+        return ret_val;
+    }
+
+    public static int GetWordValue(char[] c)
+    {
+        int ret_val = 0;
+        for (int i = 0; i < c.Length; i++)
+        {
+            ret_val += GetCharValue(c[i]);
+
+        }
+        return ret_val;
+    }
+
+    public static int GetWordValue(Tile[] t)
+    {
+        string s = TilestoString(t);
+        int ret_val = 0;
+        for (int i = 0; i < s.Length; i++)
+        {
+            ret_val += GetCharValue(s[i]);
+
+        }
+        return ret_val;
+    }
+
 
     public void PlaceRandomLetter(Transform place)
     {
@@ -149,23 +195,47 @@ public class WordHandler : MonoBehaviour {
 
     public int EvalWord(Tile[] word)
     {
-        Debug.Log(word.Length + " bbbbb" );
         switch (word.Length)
         {
             case 3:
-                if (words_3.Contains(TilestoString(word))) { AudioManagerScript.instance.playTileSound(1); return 1; }
+                if (words_3.Contains(TilestoString(word))){
+                    AudioManagerScript.instance.playTileSound(1);
+                    if (GameController.instance.point_style == PointStyle.EntireWord || GameController.instance.point_style == PointStyle.Everything)
+                        GameController.instance.total_points += Mathf.FloorToInt(GameController.instance.block_multiplier * GetWordValue(word));
+                    return 1;
+                }
                 else  AudioManagerScript.instance.playTileSound(2);  return -1; 
             case 4:
-                if (words_4.Contains(TilestoString(word))) { AudioManagerScript.instance.playTileSound(1); return 1; }
+                if (words_4.Contains(TilestoString(word))) {
+                    AudioManagerScript.instance.playTileSound(1);
+                    if (GameController.instance.point_style == PointStyle.EntireWord || GameController.instance.point_style == PointStyle.Everything)
+                        GameController.instance.total_points += Mathf.FloorToInt(GameController.instance.block_multiplier * GetWordValue(word));
+                    return 1;
+                }
                 else AudioManagerScript.instance.playTileSound(2); return -1;
             case 5:
-                if (words_5.Contains(TilestoString(word))) { AudioManagerScript.instance.playTileSound(1); return 1; }
+                if (words_5.Contains(TilestoString(word))) {
+                    AudioManagerScript.instance.playTileSound(1);
+                    if (GameController.instance.point_style == PointStyle.EntireWord || GameController.instance.point_style == PointStyle.Everything)
+                        GameController.instance.total_points += Mathf.FloorToInt(GameController.instance.block_multiplier * GetWordValue(word));
+                    return 1;
+                }
                 else AudioManagerScript.instance.playTileSound(2); return -1;
             case 6:
-                if (words_6.Contains(TilestoString(word))) { AudioManagerScript.instance.playTileSound(1); return 1; }
+                if (words_6.Contains(TilestoString(word))) {
+                    AudioManagerScript.instance.playTileSound(1);
+                    if (GameController.instance.point_style == PointStyle.EntireWord || GameController.instance.point_style == PointStyle.Everything)
+                        GameController.instance.total_points += Mathf.FloorToInt(GameController.instance.block_multiplier * GetWordValue(word));
+                    return 1;
+                }
                 else AudioManagerScript.instance.playTileSound(2); return -1;
             case 7:
-                if (words_7.Contains(TilestoString(word))) { AudioManagerScript.instance.playTileSound(1); return 1; }
+                if (words_7.Contains(TilestoString(word))) {
+                    AudioManagerScript.instance.playTileSound(1);
+                    if (GameController.instance.point_style == PointStyle.EntireWord || GameController.instance.point_style == PointStyle.Everything)
+                        GameController.instance.total_points += Mathf.FloorToInt(GameController.instance.block_multiplier * GetWordValue(word));
+                    return 1;
+                }
                 else AudioManagerScript.instance.playTileSound(2); return -1;
             default:
                 Debug.Log("word_length wrong");

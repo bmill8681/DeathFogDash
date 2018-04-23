@@ -29,7 +29,6 @@ public class Chasm : MonoBehaviour {
     public void SubmitLetter(Tile tile)
     {
         full_word.SubmitTile(tile, this_index);
-
     }
 
 
