@@ -20,7 +20,7 @@ public class Minimap_Cam_Script : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         transform.position = new Vector3(playerPos.position.x, cam_height, playerPos.position.z);
-        transform.rotation = Quaternion.Euler(90f, Camera.main.transform.eulerAngles.y,0);
+        //transform.rotation = Quaternion.Euler(90f, Camera.main.transform.eulerAngles.y,0);
 	}
 
     public void setMiniCamZoom(float zoom) // Use this to set minimap camera zoom level from settings menu
