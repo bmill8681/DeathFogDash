@@ -6,6 +6,7 @@ public class Crates : MonoBehaviour
 {
     public GameObject particles;
     public GameObject crates;
+    public GameObject fire;
 
     private void Start()
     {
@@ -14,13 +15,18 @@ public class Crates : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //TODO other break stuff
         if (other.CompareTag("Player"))
         {
-            WordHandler.instance.PlaceRandomLetter(transform);
-            AudioManagerScript.instance.playCrateSound();
-            StartCoroutine(blowup());
+            fire.SetActive(false);
+            explode();
         }
+    }
+
+    public void explode()
+    {
+        WordHandler.instance.PlaceRandomLetter(transform);
+        AudioManagerScript.instance.playCrateSound();
+        StartCoroutine(blowup());
     }
 
     IEnumerator blowup()

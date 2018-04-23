@@ -79,14 +79,14 @@ public class CameraFollowPlayer : MonoBehaviour {
         tocam = new Ray(player.position - (Vector3.up*5f) + (player.forward * 5),transform.position - player.position);
         if (Physics.Raycast(tocam,out rch,150f,building_mask))
         {
-            rch.collider.gameObject.BroadcastMessage("pingFade");
+            rch.collider.gameObject.SendMessage("pingFade");
         }
         else
         {
             tocam = new Ray(player.position - (Vector3.up * 5f) - (player.forward * 5), transform.position - player.position);
             if (Physics.Raycast(tocam, out rch, 150f, building_mask))
             {
-                rch.collider.gameObject.BroadcastMessage("pingFade");
+                rch.collider.gameObject.SendMessage("pingFade");
             }
         }
 

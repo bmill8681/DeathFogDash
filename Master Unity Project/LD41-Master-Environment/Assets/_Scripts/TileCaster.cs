@@ -22,9 +22,9 @@ public class TileCaster : MonoBehaviour {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 1000, chasm_mask))
         {
-            hit.collider.BroadcastMessage("pingFade", Tile_Selection_Script.instance.tiles[Tile_Selection_Script.instance.curTile]);
+            hit.collider.SendMessage("pingFade", Tile_Selection_Script.instance.tiles[Tile_Selection_Script.instance.curTile]);
 
-            if (Input.GetMouseButtonDown(0) && Tile_Selection_Script.instance.tiles[Tile_Selection_Script.instance.curTile] != Tile._ && Tile_Selection_Script.instance.tiles[Tile_Selection_Script.instance.curTile] != Tile.question_mark) { hit.collider.BroadcastMessage("SubmitLetter", Tile_Selection_Script.instance.tiles[Tile_Selection_Script.instance.curTile]); }
+            if (Input.GetMouseButtonDown(0) && Tile_Selection_Script.instance.tiles[Tile_Selection_Script.instance.curTile] != Tile._ && Tile_Selection_Script.instance.tiles[Tile_Selection_Script.instance.curTile] != Tile.question_mark) { hit.collider.SendMessage("SubmitLetter", Tile_Selection_Script.instance.tiles[Tile_Selection_Script.instance.curTile]); }
         }
         
     }

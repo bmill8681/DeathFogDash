@@ -8,13 +8,14 @@ public class Destroyer_Script : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Player")
+        if (other.CompareTag("Breakable"))
         {
-            int chance = Random.Range(0, 5);  // Chance of playing a sound when destroyed
-            if(chance == 4)
-                Instantiate(dSoundObj, other.transform.position, Quaternion.identity);
-            Debug.Log("dest " + other.name);
-            Destroy(other.gameObject);
+            if(Vector3.Distance(GameController.instance.player.position,other.transform.position) < 40 )
+            other.SendMessage("explode");
+        }
+        else if (other.CompareTag("Player"))
+        {
+            GameController.instance.KillPlayer(other.gameObject);
         }
     }
 

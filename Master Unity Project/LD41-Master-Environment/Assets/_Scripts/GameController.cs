@@ -15,12 +15,14 @@ public class GameController : MonoBehaviour {
     public Transform player;
     public Transform spawn;
     public GameObject PauseMenu;
-
+    public GameObject DeathPanel;
+    bool dead = false;
+    
 
     public bool paused = false;
-    public int blocks_travelled { get { return Mathf.FloorToInt(player.position.x / 44f); } }
+    public int blocks_travelled { get { return Mathf.FloorToInt(total_distance_travelled / 44f); } }
     public int total_distance_travelled { get { return Mathf.FloorToInt(Mathf.Clamp(player.position.x - player_start_pos, 0f, float.MaxValue )); } }
-    public float distance_to_deathwall { get { return player.position.x - Proceed.instance.deathray.position.x; } }
+    public float distance_to_deathwall { get { return player.position.x - Proceed.instance.deathray.position.x - 24.5f; } }
     public float block_multiplier { get { return Mathf.FloorToInt(raw_mult * 4f) / 4f; } } // raw mult but in increments of .25
     public float raw_mult { get { return Mathf.Clamp(Mathf.Pow(1.25f, blocks_travelled), 1f, 100f); } } // multiplier based on blocks travelled in x direction (how long the player has continued forward)
 
@@ -83,6 +85,33 @@ public class GameController : MonoBehaviour {
         Debug.Log("raw mult: " + raw_mult);
     }
 
+    public void KillPlayer(GameObject g_o)
+    {
+        if(g_o == player.gameObject)
+        {
+            dead = true;
+            UnPauseGame();
+            player.GetComponent<Rigidbody>().isKinematic = true;
+            player.GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>().enabled = false;
+            DeathPanel.SetActive(true);
+            StartCoroutine(Death());
+        }
+        else
+        {
+            Debug.LogError("Bad KillPlayer Call, collided with object that is not player");
+        }
+    }
+
+    IEnumerator Death()
+    {
+        while (true)
+        {
+            player.transform.position += Vector3.up * 0.01f;
+            yield return null;
+        }
+
+    }
+
     public void ToggleCameraStyle()
     {
         if (ThirdPersonOn)
@@ -122,9 +151,11 @@ public class GameController : MonoBehaviour {
         if (!paused && Input.GetKeyDown(KeyCode.T)) { ToggleCameraStyle(); }
 	}
 
+
+
     public void PauseGame()
     {
-        if (!paused)
+        if (!paused && !dead)
         {
             paused = true;
             Time.timeScale = 0;
