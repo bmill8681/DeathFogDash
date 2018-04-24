@@ -168,7 +168,7 @@ public class Pause_Menu_Script : MonoBehaviour {
 
     public void exitToMenu()
     {
-        // Put Script Here to exit to main menu
+        UnityEngine.SceneManagement.SceneManager.LoadScene("StartMenu");
     }
 
     public void disableMenu(GameObject menu)

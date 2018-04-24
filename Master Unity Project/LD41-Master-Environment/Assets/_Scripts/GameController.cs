@@ -48,6 +48,7 @@ public class GameController : MonoBehaviour {
             Destroy(this);
 
         player.position = spawn.position;
+        UnPauseGame();
     }
 
     private void Start()

@@ -23,7 +23,7 @@ public class WordHandler : MonoBehaviour {
     List<string> words_5;
     List<string> words_6;
     List<string> words_7;
-
+    public TextAsset text2;
 
     private void Awake()
     {
@@ -36,7 +36,8 @@ public class WordHandler : MonoBehaviour {
         words_5 = new List<string>();
         words_6 = new List<string>();
         words_7 = new List<string>();
-        string[] text = System.IO.File.ReadAllLines("./Assets/Dictionary/words.txt");
+
+        string[] text = text2.ToString().Split(new char[]{'\n'}, System.StringSplitOptions.RemoveEmptyEntries);
         for (int i = 0; i < text.Length; i++)
         {
             switch (text[i].Length)
