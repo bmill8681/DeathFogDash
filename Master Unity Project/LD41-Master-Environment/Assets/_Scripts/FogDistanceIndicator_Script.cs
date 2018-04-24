@@ -24,7 +24,8 @@ public class FogDistanceIndicator_Script : MonoBehaviour {
 
     void LateUpdate () {
         float pos = getDistance();
-        fogUI.rectTransform.localPosition = new Vector3(-5.0f, -pos + 100.0f, 0.0f);
+        //if(fogUI.rectTransform.localPosition.y >= -pos + 100) { }
+        fogUI.rectTransform.localPosition = new Vector3(5.0f, -pos + 100.0f, 0.0f);
     }
 
     private float getDistance()
@@ -32,6 +33,7 @@ public class FogDistanceIndicator_Script : MonoBehaviour {
         float fogPos = fog.transform.position.x;
         float pPos = player.transform.position.x;
         float spread = pPos - fogPos;
+        //spread = spread * 88f/175f;
         if (spread > MAX_SPREAD)
         {
             spread = MAX_SPREAD;

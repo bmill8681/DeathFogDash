@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class Pause_Menu_Script : MonoBehaviour {
     [SerializeField]
-    private float masterVolume = 0.75f;
+    private float masterVolume = 0.5f;
     [SerializeField]
-    private float sfxVolume = 0.75f;
+    private float sfxVolume = 0.5f;
     [SerializeField]
-    private float musicVolume = 0.75f;
+    private float musicVolume = 0.5f;
     [SerializeField]
     private float mapZoom = 7.0f;
 

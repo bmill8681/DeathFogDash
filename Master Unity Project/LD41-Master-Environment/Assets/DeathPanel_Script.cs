@@ -36,7 +36,8 @@ public class DeathPanel_Script : MonoBehaviour
         int msg1 = 10;
         int msg2 = 100;
         int msg3 = 1000;
-        int msg4 = 2000;
+        int msg4 = 69000;
+        int msg5 = 420000;
 
         scoreText.text = scoreNum.ToString();
         blocksText.text = blockNum.ToString();
@@ -61,6 +62,10 @@ public class DeathPanel_Script : MonoBehaviour
         else if (scoreNum >= msg4)
         {
             msgText.text = "You broke our game.";
+        }
+        else if (scoreNum >= msg5)
+        {
+            msgText.text = "Bruuuuhhhh...";
         }
     }
 
